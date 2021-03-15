@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -55,6 +57,16 @@ class Users implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $last_location;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Sports::class, inversedBy="users")
+     */
+    private $sport;
+
+    public function __construct()
+    {
+        $this->sport = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -183,5 +195,36 @@ class Users implements UserInterface
         $this->last_location = $last_location;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Sports[]
+     */
+    public function getSport(): Collection
+    {
+        return $this->sport;
+    }
+
+    public function addSport(Sports $sport): self
+    {
+        if (!$this->sport->contains($sport)) {
+            $this->sport[] = $sport;
+        }
+
+        return $this;
+    }
+
+    public function removeSport(Sports $sport): self
+    {
+        $this->sport->removeElement($sport);
+
+        return $this;
+    }
+
+    public function getAge()
+    {
+        $dateInterval = $this->ddn->diff(new \DateTime());
+ 
+        return $dateInterval->y;
     }
 }
