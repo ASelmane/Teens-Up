@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %} {% block title %}Dashboard{% endblock %} {% block body %}
+<div class="info">
+    <h1>Mes Infos</h1>
+    <h3>{{ app.user.prenom }}</h3>
+    <h3>{{app.user.getAge()}}</h3>
+    {% for userSport in app.user.sport %}
+    <span>{{ userSport.nom }}</span>
+    {% endfor %}<br />
+    <span>{{ app.user.lastLocation }}</span>
+</div>
+
+<div class="info">
+    <h1>Infos Users</h1>
+    {% for user in users %}
+    <h3>{{ user.prenom }}</h3>
+    <h3>{{ user.getAge()}}</h3>
+    {% for userSport in user.sport %}
+    <span>{{ userSport.nom }}</span>
+    {% endfor %}<br />
+    <span>{{ user.lastLocation }}</span
+    ><br /><br />
+    {% endfor %}
+</div>
+
+<div id="infoposition"></div>
+
+<script>
+    function maPosition(position) {
+        var infopos = position.coords.latitude + ";" + position.coords.longitude;
+        document.getElementById("infoposition").innerHTML = infopos;
+    }
+    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(maPosition);
+</script>
+{% endblock %}
