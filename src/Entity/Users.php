@@ -227,4 +227,20 @@ class Users implements UserInterface
  
         return $dateInterval->y;
     }
+
+    function getDistanceOpt($latitudeFrom, $longitudeFrom)
+    {
+        $rad = M_PI / 180;
+        $location = explode(';', $this->last_location);
+        $latitudeTo = $location[0];
+        $longitudeTo = $location[1];
+
+        //Calculate distance from latitude and longitude
+        $theta = $longitudeFrom - $longitudeTo;
+        $dist = sin($latitudeFrom * $rad) 
+            * sin($latitudeTo * $rad) +  cos($latitudeFrom * $rad)
+            * cos($latitudeTo * $rad) * cos($theta * $rad);
+
+        return round(acos($dist) / $rad * 60 *  1.853);
+    }
 }

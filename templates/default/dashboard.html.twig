@@ -2,7 +2,7 @@
 <div class="info">
     <h1>Mes Infos</h1>
     <h3>{{ app.user.prenom }}</h3>
-    <h3>{{app.user.getAge()}}</h3>
+    <h3>{{app.user.getAge()}} ans</h3>
     {% for userSport in app.user.sport %}
     <span>{{ userSport.nom }}</span>
     {% endfor %}<br />
@@ -13,7 +13,13 @@
     <h1>Infos Users</h1>
     {% for user in users %}
     <h3>{{ user.prenom }}</h3>
-    <h3>{{ user.getAge()}}</h3>
+    <h3>{{ user.getAge()}} ans</h3>
+    <span>à 
+    {% if user.GetDistanceOpt(latitude,longitude) < 1 %}
+        moins d'un kilometre
+    {% else %}
+        {{user.GetDistanceOpt(latitude,longitude)}} kilometres
+    {% endif %}</span><br>
     {% for userSport in user.sport %}
     <span>{{ userSport.nom }}</span>
     {% endfor %}<br />
