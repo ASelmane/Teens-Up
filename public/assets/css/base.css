@@ -40,14 +40,26 @@
     justify-content: center;
 }
 
+.div_svg{
+    background-color: #E5F2DE;
+    border-radius: 100%;
+}
+
+.svg{
+    height: 750px;
+    width: 750px;
+}
 .index_paragraphe{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 3rem;
+    margin-top: 3rem;
 }
 
 .index_paragraphe h2{
     margin-bottom: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 .index_paragraphe a{
     background: var(--degrade);
