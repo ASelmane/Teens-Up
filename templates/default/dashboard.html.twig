@@ -24,17 +24,11 @@
     <span>{{ userSport.nom }}</span>
     {% endfor %}<br />
     <span>{{ user.lastLocation }}</span
-    ><br /><br />
+    ><br />
+    <a href="{{ path('likes', {'id': user.id}) }}" >Like</a><br>
+    <a href="{{ path('dislikes', {'id': user.id}) }}" >Dislike</a>
+    <br><br>
     {% endfor %}
 </div>
 
-<div id="infoposition"></div>
-
-<script>
-    function maPosition(position) {
-        var infopos = position.coords.latitude + ";" + position.coords.longitude;
-        document.getElementById("infoposition").innerHTML = infopos;
-    }
-    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(maPosition);
-</script>
 {% endblock %}

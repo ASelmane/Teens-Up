@@ -63,9 +63,21 @@ class Users implements UserInterface
      */
     private $sport;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="users", orphanRemoval=true)
+     */
+    private $likes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Likes::class, mappedBy="users_liked", orphanRemoval=true)
+     */
+    private $likedBy;
+
     public function __construct()
     {
         $this->sport = new ArrayCollection();
+        $this->likes = new ArrayCollection();
+        $this->likedBy = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -242,5 +254,65 @@ class Users implements UserInterface
             * cos($latitudeTo * $rad) * cos($theta * $rad);
 
         return round(acos($dist) / $rad * 60 *  1.853);
+    }
+
+    /**
+     * @return Collection|Likes[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Likes $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Likes $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getUsers() === $this) {
+                $like->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Likes[]
+     */
+    public function getLikedBy(): Collection
+    {
+        return $this->likedBy;
+    }
+
+    public function addLikedBy(Likes $likedBy): self
+    {
+        if (!$this->likedBy->contains($likedBy)) {
+            $this->likedBy[] = $likedBy;
+            $likedBy->setUsersLiked($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLikedBy(Likes $likedBy): self
+    {
+        if ($this->likedBy->removeElement($likedBy)) {
+            // set the owning side to null (unless already changed)
+            if ($likedBy->getUsersLiked() === $this) {
+                $likedBy->setUsersLiked(null);
+            }
+        }
+
+        return $this;
     }
 }
