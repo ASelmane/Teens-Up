@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Conversations;
 use App\Entity\Likes;
 use App\Entity\Users;
 use App\Repository\LikesRepository;
+use DateTime;
+use DateTimeZone;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,17 +22,19 @@ class LikesController extends AbstractController
         $user = $this->getUser();
         $entityManager = $this->getDoctrine()->getManager();
         
-        if (!$user)  return $this->json([
-            'code' => 403,
-            'message' => "Pas connecté"
-        ], 403);
-        
-        foreach ($user_liked->getLikedBy($user) as $like) {
-            if($user_liked->getLikedBy($user)){
+        if (!$user) {
             return $this->json([
             'code' => 403,
-            'message' => 'Existe deja',
+            'message' => "Pas connecté"
             ], 403);
+        }
+        
+        foreach ($user_liked->getLikedBy() as $like) {
+            if ($like->getUsers() == $user) {
+                return $this->json([
+                'code' => 403,
+                'message' => 'Existe deja',
+                ], 403);
             }
         }
 
@@ -40,6 +45,18 @@ class LikesController extends AbstractController
 
         $entityManager->persist($like);
         $entityManager->flush();
+
+        foreach ($user->getLikedBy() as $like) {
+            if (($like->getUsers() == $user_liked) && ($like->getLiked() == 1)) {
+                    $conversation = new Conversations();
+                    $conversation-> addUser($user)
+                            -> addUser($user_liked)
+                            ->setLastMessage(new DateTime('', new DateTimeZone('Europe/Paris')));
+
+                    $entityManager->persist($conversation);
+                    $entityManager->flush();
+            }
+        }
 
         return $this->json([
             'code' => 200,
@@ -55,17 +72,19 @@ class LikesController extends AbstractController
         $user = $this->getUser();
         $entityManager = $this->getDoctrine()->getManager();
         
-        if (!$user)  return $this->json([
-            'code' => 403,
-            'message' => "Pas connecté"
-        ], 403);
-
-        foreach ($user_liked->getLikedBy($user) as $like) {
-            if($user_liked->getLikedBy($user)){
+        if (!$user) {
             return $this->json([
             'code' => 403,
-            'message' => 'Existe deja',
+            'message' => "Pas connecté"
             ], 403);
+        }
+
+        foreach ($user_liked->getLikedBy() as $like) {
+            if ($like->getUsers() == $user) {
+                return $this->json([
+                'code' => 403,
+                'message' => 'Existe deja',
+                ], 403);
             }
         }
 

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conversations index{% endblock %}
+
+{% block body %}
+<h2>Conversations</h2>
+{% for conversation in app.user.conversations %}
+<hr>
+    {% for user in conversation.users %}
+        {% if user != app.user %}
+            <a href='{{ path('conversations_show', {'id': conversation.id}) }}'>{{user.prenom}}</a>
+            <span>{{ conversation.lastMessage ? conversation.lastMessage|date('d/m/Y') : '' }} à {{ conversation.lastMessage ? conversation.lastMessage|date('H:i')}}</span>
+            <br>
+        {% endif %}
+        <br>
+    {% endfor %}
+<hr>
+{% endfor %}
+{% endblock %}
