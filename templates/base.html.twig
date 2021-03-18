@@ -7,13 +7,25 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="{{ asset('/assets/css/reset.css') }}">
             <link rel="stylesheet" href="{{ asset('/assets/css/base.css') }}">
+            <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         {% endblock %}
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+    <header>
+        <div class="header">
+            <div class="header_div">
+                <h1>Teens'Up</h1>
+            </div>
+            <div class="header_circle">
+            </div>
+        </div>
+    </header>
     <body>
         {% block body %}{% endblock %}
     </body>

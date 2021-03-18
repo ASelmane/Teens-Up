@@ -1,0 +1,157 @@
+:root{
+    --degrade: linear-gradient(270deg, #824487 0%, #544D85 100%);
+}
+.header{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+.header_circle{
+    width: 100%;
+    height: 20vh;
+    background: var(--degrade);
+    border-radius: 100%;
+    transform: translateY(-50%);
+    
+}
+
+.header_div{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 10%;
+}
+
+.header_div h1{
+    text-transform: uppercase;
+    color: white;
+    font-size: 4.2rem;
+    font-family: 'Mitr', sans-serif;
+    text-align: center;
+}
+.section{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_svg{
+    background-color: #E5F2DE;
+    border-radius: 100%;
+}
+
+.svg{
+    height: 750px;
+    width: 750px;
+}
+.index_paragraphe{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 3rem;
+}
+
+.index_paragraphe h2{
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.index_paragraphe a{
+    background: var(--degrade);
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 10px;
+    margin: 5rem;
+
+}
+
+.position{
+    display: none;
+}
+
+.section_login{
+    justify-content: space-around
+}
+
+.section_login h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.login_form{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    align-items: center;
+}
+
+.form_div{
+    display: flex;
+    align-items: flex-end;
+    margin: 2rem;
+}
+.form_div img{
+    width: 3rem;
+    margin-right: 2rem;
+}
+.label_div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 25rem;
+    overflow: hidden;
+    height: 5rem;
+}
+
+.label_div input{
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.label_div label{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: solid black 1px;
+}
+
+.label_div label::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: solid blue 1px;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.content_name{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.label_div input:focus + .label_name .content_name, 
+.label_div input:not(:placeholder-shown) + .label_name .content_name{
+    transform: translateY(-200%);
+    font-size: 1.4rem;
+    color: blue;
+}
+
+.label_div input:focus + .label_name::after, 
+.label_div input:not(:placeholder-shown) + .label_name::after{
+    transform: translateY(0%);
+}
