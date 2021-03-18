@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<section class="index_section">
+<section class="section">
 <div class="div_svg">
 {% set nombre = 1 %}
   <img id="svg" class="svg" src="{{ asset('/assets/svg/3.svg') }}">
@@ -24,13 +24,13 @@ function maPosition(position) {
 if(navigator.geolocation)
   navigator.geolocation.getCurrentPosition(maPosition);
 
-/*function randomSVG(){
+function randomSVG(){
     let svg = document.querySelector("#svg")
     let nombre = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-    let chemin = "{{ asset('/assets/svg/" + nombre + ".svg') }}"
+    let chemin = "../public/assets/svg/" + nombre + ".svg')"
     console.log(chemin)
     svg.src = chemin
-}*/
+}
 
 </script>
 {% endblock %}

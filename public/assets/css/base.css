@@ -29,7 +29,7 @@
     font-family: 'Mitr', sans-serif;
     text-align: center;
 }
-.index_section{
+.section{
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -72,4 +72,85 @@
 
 .position{
     display: none;
+}
+
+.section_login{
+    justify-content: space-around
+}
+
+.section_login h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.login_form{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    align-items: center;
+}
+
+.form_div{
+    display: flex;
+    align-items: center;
+}
+.form_div img{
+    width: 3rem;
+}
+.label_div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2rem;
+    position: relative;
+    width: 25rem;
+    overflow: hidden;
+    height: 5rem;
+}
+
+.label_div input{
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.label_div label{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: solid black 1px;
+}
+
+.label_div label::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: solid blue 1px;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.content_name{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.label_div input:focus + .label_name .content_name, 
+.label_div input:not(:placeholder-shown) + .label_name .content_name{
+    transform: translateY(-200%);
+    font-size: 1.4rem;
+    color: blue;
+}
+
+.label_div input:focus + .label_name::after, 
+.label_div input:not(:placeholder-shown) + .label_name::after{
+    transform: translateY(0%);
 }
