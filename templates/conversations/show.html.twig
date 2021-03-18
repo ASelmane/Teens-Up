@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conversations{% endblock %}
+
+{% block body %}
+    <h1>Conversations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Prenom</th>
+                <td>{% for user in conversation.users %}
+                    {% if user != app.user %}
+                    {{user.prenom}}
+                    {% endif %}
+                {% endfor %}</td>
+            </tr>
+            <tr>
+                <th>Last_message</th>
+                <td>{{ conversation.lastMessage ? conversation.lastMessage|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('conversations_index') }}">back to list</a>
+
+    {{ include('conversations/_delete_form.html.twig') }}
+{% endblock %}

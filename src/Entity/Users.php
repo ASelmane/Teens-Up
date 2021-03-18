@@ -73,11 +73,18 @@ class Users implements UserInterface
      */
     private $likedBy;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Conversations::class, mappedBy="users")
+     * @ORM\OrderBy({"last_message" = "DESC"})
+     */
+    private $conversations;
+
     public function __construct()
     {
         $this->sport = new ArrayCollection();
         $this->likes = new ArrayCollection();
         $this->likedBy = new ArrayCollection();
+        $this->conversations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -311,6 +318,33 @@ class Users implements UserInterface
             if ($likedBy->getUsersLiked() === $this) {
                 $likedBy->setUsersLiked(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversations[]
+     */
+    public function getConversations(): Collection
+    {
+        return $this->conversations;
+    }
+
+    public function addConversation(Conversations $conversation): self
+    {
+        if (!$this->conversations->contains($conversation)) {
+            $this->conversations[] = $conversation;
+            $conversation->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConversation(Conversations $conversation): self
+    {
+        if ($this->conversations->removeElement($conversation)) {
+            $conversation->removeUser($this);
         }
 
         return $this;
