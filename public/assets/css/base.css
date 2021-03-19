@@ -155,3 +155,13 @@
 .label_div input:not(:placeholder-shown) + .label_name::after{
     transform: translateY(0%);
 }
+
+.myMessage{
+    background-color: #824487;
+    margin-bottom: 1em;
+    color: white;
+}
+.otherMessage{
+    background-color: rgb(189, 189, 189);
+    margin-bottom: 1em;
+}
