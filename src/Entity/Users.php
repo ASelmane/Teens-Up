@@ -79,12 +79,18 @@ class Users implements UserInterface
      */
     private $conversations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="users", orphanRemoval=true)
+     */
+    private $messages;
+
     public function __construct()
     {
         $this->sport = new ArrayCollection();
         $this->likes = new ArrayCollection();
         $this->likedBy = new ArrayCollection();
         $this->conversations = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -345,6 +351,36 @@ class Users implements UserInterface
     {
         if ($this->conversations->removeElement($conversation)) {
             $conversation->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Messages $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Messages $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getUsers() === $this) {
+                $message->setUsers(null);
+            }
         }
 
         return $this;

@@ -29,9 +29,16 @@ class Conversations
      */
     private $last_message;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="conversations")
+     * @ORM\OrderBy({"date" = "ASC"})
+     */
+    private $messages;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -71,6 +78,36 @@ class Conversations
     public function setLastMessage(\DateTimeInterface $last_message): self
     {
         $this->last_message = $last_message;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Messages $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setConversations($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Messages $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getConversations() === $this) {
+                $message->setConversations(null);
+            }
+        }
 
         return $this;
     }
