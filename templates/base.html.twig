@@ -25,6 +25,13 @@
             <div class="header_circle">
             </div>
         </div>
+        {% for messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endfor %}
     </header>
     <body>
         {% block body %}{% endblock %}

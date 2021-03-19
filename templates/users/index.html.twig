@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+<a href="{{ path('dashboard') }}">back to dashboard</a><br>
+    <h1>Users</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ app.user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>images</th>
+                <td><img src="/{{ app.user.images }}" alt=""></td>
+            </tr>
+            <tr>
+                <th>Ddn</th>
+                <td>{{ app.user.ddn ? app.user.ddn|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>description</th>
+                <td>{{ app.user.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+
+    <a href="{{ path('profil_edit')}}">Modifier le profil</a><br>
+    <a href="{{ path('password_edit')}}">Changer de mot de passe</a>
+
+    {{ include('users/_delete_form.html.twig') }}
+{% endblock %}
