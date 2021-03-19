@@ -6,23 +6,92 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+<section class="section section_login">
+  <h2>Register</h2>
+  <div class="forms">
+    <form id="form1" class="register_form active">
+      <div class="form_div">
+        <img src="{{ asset('/assets/svg/name.svg') }}">
+        <div class="label_div">
+          <input type="text" name="registration_form_prenom" id="registration_form_prenom" class="form-control" placeholder=" " required autofocus>
+          <label class="label_name" for="registration_form_prenom">
+            <span class="content_name">Prénom</span>
+          </label>
+        </div>
+      </div>
 
-    <h1>Register</h1>
+      <div class="form_div">
+        <img src="{{ asset('/assets/svg/mail.svg') }}">
+        <div class="label_div">
+          <input type="email" name="registration_form_email" id="registration_form_email" class="form-control" placeholder=" " required autofocus>
+          <label class="label_name" for="registration_form_email">
+            <span class="content_name">E-mail</span>
+          </label>
+        </div>
+      </div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.ddn) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.sport) }}
-        {{ form_row(registrationForm.distance) }}
-        {{ form_row(registrationForm.last_location) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+      <div class="form_div">
+        <img src="{{ asset('/assets/svg/password.svg') }}">
+        <div class="label_div">
+          <input type="password" name="registration_form_plainPassword" id="registration_form_plainPassword" class="form-control" placeholder=" " required autofocus>
+          <label class="label_name" for="registration_form_plainPassword">
+            <span class="content_name">Mot de passe</span>
+          </label>
+        </div>
+      </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+      <div class="form_div">
+        <img src="{{ asset('/assets/svg/calendar.svg') }}">
+        <div class="label_div">
+          <input type="date" name="registration_form_ddn_month" id="registration_form_ddn_month" class="form-control date" placeholder=" " required autofocus>
+          <label class="label_name" for="registration_form_ddn_month">
+            <span class="content_name">Date</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form_div">
+          <input class="agree_checkbox" type="checkbox" name="registration_form_agreeTerms" id="registration_form_agreeTerms" required autofocus>
+          
+          <label class="agree_label" for="registration_form_agreeTerms">
+            <span>J’accepte les conditions</span>
+          </label>
+      </div>
+        
+      <input type="button" id="submit1" value="Suivant" class="boutton disabled">
+
+      <!--{{ form_start(registrationForm) }}
+
+          {{ form_row(registrationForm.sport) }}
+          {{ form_row(registrationForm.distance) }}
+          {{ form_row(registrationForm.last_location) }}
+
+          <button type="submit" class="btn">Register</button>
+      {{ form_end(registrationForm) }}-->
+    </form>
+    <form class="register_form form_checkbox" id="form2">
+      <div class="div_checkbox">
+        <input type="checkbox" id="sport1" />
+        <label class="checkbox_label" for="sport1"><img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" /></label>
+
+        <input type="checkbox" id="sport2" />
+        <label class="checkbox_label" for="sport2"><img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" /></label>
+
+      </div>
+      <input type="button" id="submit2" value="Suivant" class="boutton">
+    </form>
+
+    <form class="register_form" id="form3">
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onmousemove="rangeSlide(this.value)" onChange="rangeSlide(this.value)">
+      <div class="div_valeur">
+        <span>1km</span>
+        <span id="rangeValue">50</span>
+        <span>100km</span>
+      </div>
+      <input type="button" id="submit3" value="S'inscrire" class="boutton">
+    </form>
+  </div>
+</section>
 
 <script>
 function maPosition(position) {
@@ -31,5 +100,33 @@ function maPosition(position) {
 }
 if(navigator.geolocation)
   navigator.geolocation.getCurrentPosition(maPosition);
+
+var form1 = document.getElementById("form1")
+var form2 = document.getElementById("form2")
+var form3 = document.getElementById("form3")
+
+var agreeTerms = document.getElementById("registration_form_agreeTerms");
+
+var submit1 = document.getElementById("submit1")
+var submit2 = document.getElementById("submit2")
+
+agreeTerms.addEventListener("click", function(){
+    submit1.classList.toggle("disabled")
+})
+
+submit1.addEventListener("click", function(){
+  if(submit1.className == "boutton"){
+    form1.classList.toggle("active")
+    form2.classList.toggle("active")
+  }
+})
+
+submit2.addEventListener("click", function(){
+  form2.classList.toggle("active")
+  form3.classList.toggle("active")
+})
+function rangeSlide(value) {
+  document.getElementById('rangeValue').innerHTML = value;
+}
 </script>
 {% endblock %}

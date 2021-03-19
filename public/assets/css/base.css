@@ -57,17 +57,27 @@
 }
 
 .index_paragraphe h2{
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     margin-left: 5rem;
     margin-right: 5rem;
 }
-.index_paragraphe a{
+.boutton{
     background: var(--degrade);
     padding: 1rem 2rem;
     color: white;
     border-radius: 10px;
     margin: 5rem;
+    font-size: 3rem;
+}
 
+.boutton.disabled{
+    background: linear-gradient(270deg, #777777 0%, #929292 100%);    
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 10px;
+    margin: 5rem;
+    font-size: 3rem;
+    cursor:default;
 }
 
 .position{
@@ -82,14 +92,19 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 3rem;
+    text-transform: uppercase;
+    margin-top: 25%;
 }
 
-.login_form{
+.login_form, .register_form.active{
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     align-items: center;
+}
+.register_form{
+    display: none;
 }
 
 .form_div{
@@ -108,19 +123,21 @@
     position: relative;
     width: 25rem;
     overflow: hidden;
-    height: 5rem;
+    height: 8rem;
 }
 
 .label_div input{
     width: 100%;
     height: 100%;
     padding-top: 20px;
+    font-size: 2rem;
 }
 
 .label_div label{
     position: absolute;
     bottom: 0;
     width: 100%;
+    font-size: 2rem;
     height: 100%;
     border-bottom: solid black 1px;
 }
@@ -132,7 +149,7 @@
     bottom: -1px;
     height: 100%;
     width: 100%;
-    border-bottom: solid blue 1px;
+    border-bottom: solid #824487 1px;
     transform: translateX(-100%);
     transition: all 0.5s ease;
 }
@@ -147,11 +164,61 @@
 .label_div input:focus + .label_name .content_name, 
 .label_div input:not(:placeholder-shown) + .label_name .content_name{
     transform: translateY(-200%);
-    font-size: 1.4rem;
-    color: blue;
+    font-size: 2rem;
+    color: #824487;
 }
 
 .label_div input:focus + .label_name::after, 
 .label_div input:not(:placeholder-shown) + .label_name::after{
     transform: translateY(0%);
+}
+
+.inscription{
+    font-family: "MontSerrat";
+    font-size: 2rem;
+}
+
+.form_checkbox input[type=checkbox]{
+    display: none;
+}
+
+.checkbox_label{
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.form_checkbox input:checked + .checkbox_label{
+    border: solid black 3px;
+}
+
+.slider{
+    width: 40rem;
+    height: 2rem;
+    -webkit-appearance: none;
+    background: #B0ADC3;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: 4px solid #824487;
+    box-shadow: -407px 0 0 400px #824487;
+}
+
+.div_valeur{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date::-webkit-calendar-picker-indicator {
+    display: none;
 }
