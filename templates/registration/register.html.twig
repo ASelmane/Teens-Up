@@ -114,6 +114,8 @@ var form1 = document.getElementById("form1")
 var form2 = document.getElementById("form2")
 var form3 = document.getElementById("form3")
 
+var tab = []
+
 var agreeTerms = document.getElementById("registration_form_agreeTerms");
 
 var submit1 = document.getElementById("submit1")
@@ -141,7 +143,10 @@ submit2.addEventListener("click", function(){
   form3.registration_form_email.value = form2.registration_form_email.value
   form3.registration_form_plainPassword.value = form2.registration_form_plainPassword.value
   form3.registration_form_ddn_month.value = form2.registration_form_ddn_month.value
-  form3.registration_form_sport.value = form2.registration_form_sport.value
+  for(let i = 0; i<form2.registration_form_sport.length; i++){
+    tab.push(form2.registration_form_sport[i].value)
+  }
+  form3.registration_form_sport = form2.registration_form_sport
   form3.classList.toggle("active")
 })
 function rangeSlide(value) {
