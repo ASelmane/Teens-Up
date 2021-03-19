@@ -74,7 +74,7 @@ class Users implements UserInterface
     private $likedBy;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Conversations::class, mappedBy="users")
+     * @ORM\ManyToMany(targetEntity=Conversations::class, mappedBy="users", orphanRemoval=true)
      * @ORM\OrderBy({"last_message" = "DESC"})
      */
     private $conversations;
@@ -83,6 +83,16 @@ class Users implements UserInterface
      * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="users", orphanRemoval=true)
      */
     private $messages;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $images;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
     public function __construct()
     {
@@ -382,6 +392,30 @@ class Users implements UserInterface
                 $message->setUsers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    public function setImages(?string $images): self
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
