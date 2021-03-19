@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %} {% block title %}Dashboard{% endblock %} {% block body %}
-<div class="info">
+<div class="info_perso">
     <h1>Mes Infos</h1>
     <h3>{{ app.user.prenom }}</h3>
     <h3>{{app.user.getAge()}} ans</h3>
@@ -8,27 +8,39 @@
     {% endfor %}<br />
     <span>{{ app.user.lastLocation }}</span>
 </div>
-
-<div class="info">
-    <h1>Infos Users</h1>
+<section class="section">
+    <div class="info">
     {% for user in users %}
-    <h3>{{ user.prenom }}</h3>
-    <h3>{{ user.getAge()}} ans</h3>
-    <span>à 
-    {% if user.GetDistanceOpt(latitude,longitude) < 1 %}
-        moins d'un kilometre
-    {% else %}
-        {{user.GetDistanceOpt(latitude,longitude)}} kilometres
-    {% endif %}</span><br>
-    {% for userSport in user.sport %}
-    <span>{{ userSport.nom }}</span>
-    {% endfor %}<br />
-    <span>{{ user.lastLocation }}</span
-    ><br />
-    <a href="{{ path('likes', {'id': user.id}) }}" >Like</a><br>
-    <a href="{{ path('dislikes', {'id': user.id}) }}" >Dislike</a>
-    <br><br>
-    {% endfor %}
-</div>
+        <div class="div_totale">
+            <div class="user_card">
+                <div class="image_degrade">
+                    <img class="image_profil" src="https://fr.web.img5.acsta.net/pictures/19/08/09/14/53/1842996.jpg">
+                </div>
+                <div class="infos_user">
+                    <h3>{{ user.prenom}}, {{user.getAge()}} ans</h3>
+                    <span>à 
+                    {% if user.GetDistanceOpt(latitude,longitude) < 1 %}
+                        moins d'un kilometre
+                    {% else %}
+                        {{user.GetDistanceOpt(latitude,longitude)}} kilometres
+                    {% endif %}</span><br>
+                    {% for userSport in user.sport %}
+                    <span>{{ userSport.nom }} </span>
+                    {% endfor %}<br />
+                    <!--<span>{{ user.lastLocation }}</span>-->
+                    <br />
+                </div>
 
-{% endblock %}
+                <br><br>
+                <div class="div_like">
+                    <a href="{{ path('likes', {'id': user.id}) }}" >Like</a><br>
+                    <a href="{{ path('dislikes', {'id': user.id}) }}" >Dislike</a>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+
+    </div>
+
+</section>
+    {% endblock %}
