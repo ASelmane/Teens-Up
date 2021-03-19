@@ -71,13 +71,17 @@
     </form>
     <form class="register_form form_checkbox" id="form2">
       <div class="div_checkbox">
-        <input type="checkbox" id="sport1" />
+        <input name="registration_form_sport" type="checkbox" id="sport1" value="sport1" />
         <label class="checkbox_label" for="sport1"><img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" /></label>
 
-        <input type="checkbox" id="sport2" />
+        <input name="registration_form_sport" type="checkbox" id="sport2" value="sport2" />
         <label class="checkbox_label" for="sport2"><img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" /></label>
 
       </div>
+      <input type="hidden" name="registration_form_prenom">
+      <input type="hidden" name="registration_form_email">
+      <input type="hidden" name="registration_form_plainPassword">
+      <input type="hidden" name="registration_form_ddn_month">
       <input type="button" id="submit2" value="Suivant" class="boutton">
     </form>
 
@@ -88,7 +92,12 @@
         <span id="rangeValue">50</span>
         <span>100km</span>
       </div>
-      <input type="button" id="submit3" value="S'inscrire" class="boutton">
+      <input type="hidden" name="registration_form_prenom">
+      <input type="hidden" name="registration_form_email">
+      <input type="hidden" name="registration_form_plainPassword">
+      <input type="hidden" name="registration_form_ddn_month">
+      <input type="hidden" name="registration_form_sport">
+      <input type="submit" id="submit3" value="S'inscrire" class="boutton">
     </form>
   </div>
 </section>
@@ -117,12 +126,22 @@ agreeTerms.addEventListener("click", function(){
 submit1.addEventListener("click", function(){
   if(submit1.className == "boutton"){
     form1.classList.toggle("active")
+    form2.registration_form_prenom.value = form1.registration_form_prenom.value
+    form2.registration_form_email.value = form1.registration_form_email.value
+    form2.registration_form_plainPassword.value = form1.registration_form_plainPassword.value
+    form2.registration_form_ddn_month.value = form1.registration_form_ddn_month.value
+
     form2.classList.toggle("active")
   }
 })
 
 submit2.addEventListener("click", function(){
   form2.classList.toggle("active")
+  form3.registration_form_prenom.value = form2.registration_form_prenom.value
+  form3.registration_form_email.value = form2.registration_form_email.value
+  form3.registration_form_plainPassword.value = form2.registration_form_plainPassword.value
+  form3.registration_form_ddn_month.value = form2.registration_form_ddn_month.value
+  form3.registration_form_sport.value = form2.registration_form_sport.value
   form3.classList.toggle("active")
 })
 function rangeSlide(value) {
