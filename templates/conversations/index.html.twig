@@ -3,17 +3,30 @@
 {% block title %}Conversations index{% endblock %}
 
 {% block body %}
-<h2>Conversations</h2>
+<h2 class="conversation-titre">Conversations</h2>
+
+<br></br>
+
 {% for conversation in app.user.conversations %}
 <hr>
+<div class="conversations-div">
     {% for user in conversation.users %}
         {% if user != app.user %}
-            <a href='{{ path('conversations_show', {'id': conversation.id}) }}'>{{user.prenom}}</a>
-            <span>{{ conversation.lastMessage ? conversation.lastMessage|date('d/m/Y') : '' }} à {{ conversation.lastMessage ? conversation.lastMessage|date('H:i')}}</span>
-            <br>
+        
+            <a href='{{ path('conversations_show', {'id': conversation.id}) }}'>
+               
+                <h2 class="conversation-prenom">{{user.prenom}}</h2>
+               
+            <p class="conversation-message">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        
+        </a>
         {% endif %}
-        <br>
+        
     {% endfor %}
+
 <hr>
+</div>
 {% endfor %}
 {% endblock %}

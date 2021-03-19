@@ -155,3 +155,23 @@
 .label_div input:not(:placeholder-shown) + .label_name::after{
     transform: translateY(0%);
 }
+
+.conversation-message {
+    color: grey;
+}
+
+.conversation-prenom {
+    font-weight: bolder;
+}
+
+.conversations-div{
+    
+    float: inotial;
+    
+}
+
+
+.conversation-titre {
+    font-weight: bolder;
+   
+}
