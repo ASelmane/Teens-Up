@@ -3,26 +3,31 @@
 {% block title %}Conversations{% endblock %}
 
 {% block body %}
-    <h1>Conversations</h1>
+<a href="{{ path('conversations_index') }}">back to list</a>
+{{ include('conversations/_delete_form.html.twig') }}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Prenom</th>
-                <td>{% for user in conversation.users %}
-                    {% if user != app.user %}
-                    {{user.prenom}}
-                    {% endif %}
-                {% endfor %}</td>
-            </tr>
-            <tr>
-                <th>Last_message</th>
-                <td>{{ conversation.lastMessage ? conversation.lastMessage|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    {% for user in conversation.users %}
+        {% if user != app.user %}
+        <h1>{{user.prenom}}</h1>
+        {% endif %}
+    {% endfor %}
 
-    <a href="{{ path('conversations_index') }}">back to list</a>
-
-    {{ include('conversations/_delete_form.html.twig') }}
+    {% for message in conversation.messages %}
+        {% if message.users == app.user %}
+            <div class="myMessage">
+                <h3>{{message.users.prenom}}</h3>
+                <p>{{message.messages}}</p>
+                {{ message.date ? message.date|date('H:i d-m-Y')}}
+            </div>
+        {% else %}
+            <div class="otherMessage">
+                <h3>{{message.users.prenom}}</h3>
+                <p>{{message.messages}}</p>
+                {{ message.date ? message.date|date('H:i d-m-Y')}}
+            </div>
+        {% endif %}
+        
+    {% endfor %}
+    {{ include('conversations/_form.html.twig') }}
+    
 {% endblock %}

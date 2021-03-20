@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} {% block body %}
+<h1>Modifier Profil {{ app.user.prenom }}</h1>
+
+
+{{ include('users/_form.html.twig') }}
+<a href="{{ path('profil') }}">back to list</a>
+
+{{ include("users/_delete_form.html.twig") }}
+{% endblock %}

@@ -74,10 +74,25 @@ class Users implements UserInterface
     private $likedBy;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Conversations::class, mappedBy="users")
+     * @ORM\ManyToMany(targetEntity=Conversations::class, mappedBy="users", orphanRemoval=true)
      * @ORM\OrderBy({"last_message" = "DESC"})
      */
     private $conversations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="users", orphanRemoval=true)
+     */
+    private $messages;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $images;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
     public function __construct()
     {
@@ -85,6 +100,7 @@ class Users implements UserInterface
         $this->likes = new ArrayCollection();
         $this->likedBy = new ArrayCollection();
         $this->conversations = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -346,6 +362,60 @@ class Users implements UserInterface
         if ($this->conversations->removeElement($conversation)) {
             $conversation->removeUser($this);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Messages $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Messages $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getUsers() === $this) {
+                $message->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    public function setImages(?string $images): self
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

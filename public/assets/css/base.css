@@ -307,3 +307,12 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.myMessage{
+    background-color: #824487;
+    margin-bottom: 1em;
+    color: white;
+}
+.otherMessage{
+    background-color: rgb(189, 189, 189);
+    margin-bottom: 1em;
+}
