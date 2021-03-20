@@ -1,156 +1,88 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
-
-{% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block body %} {% for flashError in app.flashes('verify_email_error') %}
+<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+{% endfor %}
 <section class="section section_login">
-  <h2>Register</h2>
-  <div class="forms">
-    <form id="form1" class="register_form active">
-      <div class="form_div">
-        <img src="{{ asset('/assets/svg/name.svg') }}">
-        <div class="label_div">
-          <input type="text" name="registration_form_prenom" id="registration_form_prenom" class="form-control" placeholder=" " required autofocus>
-          <label class="label_name" for="registration_form_prenom">
-            <span class="content_name">Prénom</span>
-          </label>
+    <h2>Register</h2>
+    <form name="registration_form" method="post">
+        <div id="form1" class="register_form active">
+            <div class="form_div">
+                <img src="{{ asset('/assets/svg/name.svg') }}" />
+                <div class="label_div">
+                    <input type="text" name="registration_form[prenom]" id="registration_form_prenom" class="form-control" maxlength="100" placeholder=" " required autofocus />
+                    <label class="label_name required" for="registration_form_prenom">
+                        <span class="content_name">Prénom</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form_div">
+                <img src="{{ asset('/assets/svg/mail.svg') }}" />
+                <div class="label_div">
+                    <input type="email" name="registration_form[email]" id="registration_form_email" class="form-control" placeholder=" " required autofocus />
+                    <label class="label_name required" for="registration_form_email">
+                        <span class="content_name">E-mail</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form_div">
+                <img src="{{ asset('/assets/svg/password.svg') }}" />
+                <div class="label_div">
+                    <input type="password" name="registration_form[plainPassword]" id="registration_form_plainPassword" class="form-control" placeholder=" " required autofocus />
+                    <label class="label_name required" for="registration_form_plainPassword">
+                        <span class="content_name">Mot de passe</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form_div">
+                <img src="{{ asset('/assets/svg/calendar.svg') }}" />
+                <div class="label_div">
+                    <input type="date" id="registration_form_ddn" class="form-control date" placeholder=" " required autofocus />
+                    <label class="label_name" for="registration_form_ddn">
+                        <span class="content_name">Date</span>
+                    </label>
+                </div>
+                <input type="hidden" name="registration_form[ddn][day]" id="registration_form_ddn_day" required/>
+                <input type="hidden" name="registration_form[ddn][month]" id="registration_form_ddn_month" required/>
+                <input type="hidden" name="registration_form[ddn][year]" id="registration_form_ddn_year" required/>
+            </div>
+            <div class="form_div">
+                <input class="agree_checkbox" type="checkbox" name="registration_form[agreeTerms]" id="registration_form_agreeTerms" required autofocus />
+                <label class="agree_label" for="registration_form_agreeTerms">
+                    <span>J’accepte les conditions</span>
+                </label>
+            </div>
         </div>
-      </div>
-
-      <div class="form_div">
-        <img src="{{ asset('/assets/svg/mail.svg') }}">
-        <div class="label_div">
-          <input type="email" name="registration_form_email" id="registration_form_email" class="form-control" placeholder=" " required autofocus>
-          <label class="label_name" for="registration_form_email">
-            <span class="content_name">E-mail</span>
-          </label>
+        <div class="register_form form_checkbox" id="form2">
+            <div class="div_checkbox">
+                <label class="required">Sport</label>
+                <div id="registration_form_sport">
+                    {% for sport in sports %}
+                    <div class="sport">
+                        <input type="checkbox" id="registration_form_sport_{{sport.id}}" name="registration_form[sport][]" value="{{sport.id}}">
+                        <label class="checkbox_label" for="registration_form_sport_{{sport.id}}">
+                            <img class="sportImage" src="/{{sport.images}}"/><br>
+                            <span>{{sport.nom}}</span>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
         </div>
-      </div>
-
-      <div class="form_div">
-        <img src="{{ asset('/assets/svg/password.svg') }}">
-        <div class="label_div">
-          <input type="password" name="registration_form_plainPassword" id="registration_form_plainPassword" class="form-control" placeholder=" " required autofocus>
-          <label class="label_name" for="registration_form_plainPassword">
-            <span class="content_name">Mot de passe</span>
-          </label>
+        <div class="register_form" id="form3">
+            <input type="range" min="1" max="100" value="50" class="slider" id="registration_form_distance" name="registration_form[distance]" onmousemove="rangeSlide(this.value)" onChange="rangeSlide(this.value)" />
+            <div class="div_valeur">
+                <span>1km</span>
+                <span id="rangeValue">50</span>
+                <span>100km</span>
+            </div>
+            <input type="hidden" id="registration_form_last_location" name="registration_form[last_location]"/>
+            {{ form_row(registrationForm._token) }}
+            <input type="submit" id="submit3" value="S'inscrire" class="boutton btn" />
         </div>
-      </div>
-
-      <div class="form_div">
-        <img src="{{ asset('/assets/svg/calendar.svg') }}">
-        <div class="label_div">
-          <input type="date" name="registration_form_ddn_month" id="registration_form_ddn_month" class="form-control date" placeholder=" " required autofocus>
-          <label class="label_name" for="registration_form_ddn_month">
-            <span class="content_name">Date</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="form_div">
-          <input class="agree_checkbox" type="checkbox" name="registration_form_agreeTerms" id="registration_form_agreeTerms" required autofocus>
-          
-          <label class="agree_label" for="registration_form_agreeTerms">
-            <span>J’accepte les conditions</span>
-          </label>
-      </div>
-        
-      <input type="button" id="submit1" value="Suivant" class="boutton disabled">
-
-      <!--{{ form_start(registrationForm) }}
-
-          {{ form_row(registrationForm.sport) }}
-          {{ form_row(registrationForm.distance) }}
-          {{ form_row(registrationForm.last_location) }}
-
-          <button type="submit" class="btn">Register</button>
-      {{ form_end(registrationForm) }}-->
     </form>
-    <form class="register_form form_checkbox" id="form2">
-      <div class="div_checkbox">
-        <input name="registration_form_sport" type="checkbox" id="sport1" value="sport1" />
-        <label class="checkbox_label" for="sport1"><img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" /></label>
-
-        <input name="registration_form_sport" type="checkbox" id="sport2" value="sport2" />
-        <label class="checkbox_label" for="sport2"><img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" /></label>
-
-      </div>
-      <input type="hidden" name="registration_form_prenom">
-      <input type="hidden" name="registration_form_email">
-      <input type="hidden" name="registration_form_plainPassword">
-      <input type="hidden" name="registration_form_ddn_month">
-      <input type="button" id="submit2" value="Suivant" class="boutton">
-    </form>
-
-    <form class="register_form" id="form3">
-      <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onmousemove="rangeSlide(this.value)" onChange="rangeSlide(this.value)">
-      <div class="div_valeur">
-        <span>1km</span>
-        <span id="rangeValue">50</span>
-        <span>100km</span>
-      </div>
-      <input type="hidden" name="registration_form_prenom">
-      <input type="hidden" name="registration_form_email">
-      <input type="hidden" name="registration_form_plainPassword">
-      <input type="hidden" name="registration_form_ddn_month">
-      <input type="hidden" name="registration_form_sport">
-      <input type="submit" id="submit3" value="S'inscrire" class="boutton">
-    </form>
-  </div>
+    <button id='submit1' class="boutton btn disabled active">Suivant</button>
+    <button id='submit2' class="boutton btn">Suivant</button>
 </section>
 
-<script>
-function maPosition(position) {
-  var infopos = position.coords.latitude +";"+position.coords.longitude;
-  document.getElementById("registration_form_last_location").value = infopos;
-}
-if(navigator.geolocation)
-  navigator.geolocation.getCurrentPosition(maPosition);
-
-var form1 = document.getElementById("form1")
-var form2 = document.getElementById("form2")
-var form3 = document.getElementById("form3")
-
-var tab = []
-
-var agreeTerms = document.getElementById("registration_form_agreeTerms");
-
-var submit1 = document.getElementById("submit1")
-var submit2 = document.getElementById("submit2")
-
-agreeTerms.addEventListener("click", function(){
-    submit1.classList.toggle("disabled")
-})
-
-submit1.addEventListener("click", function(){
-  if(submit1.className == "boutton"){
-    form1.classList.toggle("active")
-    form2.registration_form_prenom.value = form1.registration_form_prenom.value
-    form2.registration_form_email.value = form1.registration_form_email.value
-    form2.registration_form_plainPassword.value = form1.registration_form_plainPassword.value
-    form2.registration_form_ddn_month.value = form1.registration_form_ddn_month.value
-
-    form2.classList.toggle("active")
-  }
-})
-
-submit2.addEventListener("click", function(){
-  form2.classList.toggle("active")
-  form3.registration_form_prenom.value = form2.registration_form_prenom.value
-  form3.registration_form_email.value = form2.registration_form_email.value
-  form3.registration_form_plainPassword.value = form2.registration_form_plainPassword.value
-  form3.registration_form_ddn_month.value = form2.registration_form_ddn_month.value
-  for(let i = 0; i<form2.registration_form_sport.length; i++){
-    tab.push(form2.registration_form_sport[i].value)
-  }
-  form3.registration_form_sport = form2.registration_form_sport
-  form3.classList.toggle("active")
-})
-function rangeSlide(value) {
-  document.getElementById('rangeValue').innerHTML = value;
-}
-</script>
+<script src="{{ asset('/assets/js/register.js') }}"></script>
 {% endblock %}
