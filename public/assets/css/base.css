@@ -62,21 +62,18 @@
     margin-right: 5rem;
 }
 .boutton{
+    font-family: 'Montserrat', sans-serif;
     background: var(--degrade);
     padding: 1rem 2rem;
     color: white;
     border-radius: 10px;
     margin: 5rem;
     font-size: 3rem;
+    margin-top: 1em;
 }
 
 .boutton.disabled{
     background: linear-gradient(270deg, #777777 0%, #929292 100%);    
-    padding: 1rem 2rem;
-    color: white;
-    border-radius: 10px;
-    margin: 5rem;
-    font-size: 3rem;
     cursor:default;
 }
 
@@ -103,10 +100,12 @@
     font-size: 1.5rem;
     align-items: center;
 }
-.register_form{
+.register_form, .btn{
     display: none;
 }
-
+.btn.active{
+    display: flex;
+}
 .form_div{
     display: flex;
     align-items: flex-end;
@@ -221,4 +220,13 @@
 
 .date::-webkit-calendar-picker-indicator {
     display: none;
+}
+
+.sport{
+    display: inline-flex;
+    text-align: center;
+}
+
+.sportImage{
+    width: 3em;
 }
