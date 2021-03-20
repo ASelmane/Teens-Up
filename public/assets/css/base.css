@@ -227,7 +227,7 @@
 }
 
 .infos_user span{
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .user_card:first-child{
@@ -251,6 +251,20 @@
 .div_like{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 3rem;
+    justify-content: space-around;
+    background-color: #E3E3E3;
+    width: 120vw;
+    position: absolute;
+    bottom: 0;
+    border-radius: 40%;
+    transform: translateY(2rem);
+}
+
+.div_like img{
+    width: 10rem;
+    margin: 2.5rem;
+}
+
+.dashboard_section{
+    overflow: hidden;
 }

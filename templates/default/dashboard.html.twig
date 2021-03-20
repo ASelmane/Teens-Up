@@ -8,7 +8,7 @@
     {% endfor %}<br />
     <span>{{ app.user.lastLocation }}</span>
 </div>
-<section class="section">
+<section class="section dashboard_section">
     <div class="info">
     {% for user in users %}
         <div class="div_totale">
@@ -32,11 +32,11 @@
                 </div>
 
                 <br><br>
-                <div class="div_like">
-                    <a href="{{ path('likes', {'id': user.id}) }}" >Like</a><br>
-                    <a href="{{ path('dislikes', {'id': user.id}) }}" >Dislike</a>
-                </div>
             </div>
+                <div class="div_like">
+                    <a href="{{ path('dislikes', {'id': user.id}) }}" ><img src="{{ asset('/assets/svg/dislike.svg') }}"></a><br>
+                    <a href="{{ path('likes', {'id': user.id}) }}" ><img src="{{ asset('/assets/svg/like.svg') }}"></a>
+                </div>
         </div>
             {% endfor %}
 
