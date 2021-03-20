@@ -58,6 +58,10 @@ function maPosition(position) {
 
   ddn.addEventListener('input', function(){
       var ddn_array = ddn.value.split("-");
+     for (let index = 0; index < 3; index++) {
+        ddn_array[index] = ddn_array[index]*1;
+     }
+      console.log(ddn_array);
       ddn_year = document.getElementById('registration_form_ddn_year').value = ddn_array[0];
       ddn_month = document.getElementById('registration_form_ddn_month').value = ddn_array[1];
       ddn_day = document.getElementById('registration_form_ddn_day').value = ddn_array[2];
