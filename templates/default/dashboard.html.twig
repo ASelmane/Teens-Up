@@ -34,8 +34,8 @@
                 <br><br>
             </div>
                 <div class="div_like">
-                    <a href="{{ path('dislikes', {'id': user.id}) }}" ><img src="{{ asset('/assets/svg/dislike.svg') }}"></a><br>
-                    <a href="{{ path('likes', {'id': user.id}) }}" ><img src="{{ asset('/assets/svg/like.svg') }}"></a>
+                    <button id="dislike"><img src="{{ asset('/assets/svg/dislike.svg') }}"><button><br>
+                    <button id="like"><img src="{{ asset('/assets/svg/like.svg') }}"></button>
                 </div>
         </div>
             {% endfor %}
@@ -43,4 +43,32 @@
     </div>
 
 </section>
+<script>
+    var dislikes = document.querySelectorAll("#dislike")
+    var likes = document.querySelectorAll("#like")
+
+    function next(e){
+        let type = e.path[1].id
+
+        if(type == "like"){
+            e.path[3].children[0].className = "div_totale_like"
+        }
+        else if(type == "dislike"){
+            e.path[3].children[0].className = "div_totale_dislike"
+        }
+        setTimeout(function(){
+            e.path[4].removeChild(e.path[3])
+        }, 250); 
+    }
+
+    likes.forEach(like =>{
+        like.addEventListener("click", next)
+    })
+
+    dislikes.forEach(dislike =>{
+        dislike.addEventListener("click", next)
+    })
+
+    
+</script>
     {% endblock %}

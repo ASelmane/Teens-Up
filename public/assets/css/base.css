@@ -244,8 +244,82 @@
     font-family: "MontSerrat";  
     height: 100%;
 }
+
+.div_totale:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    font-family: "MontSerrat";  
+    height: 100%;
+    z-index: -2;
+    position: absolute
+}
+
+.div_totale:nth-child(2) + .div_like{
+    display: none
+}
+
 .div_totale{
     display: none;
+}
+
+.div_totale_like{    
+    width: 80%; 
+    height: 70%; 
+    position: relative;
+    -webkit-animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes slide-tr {
+    0% {
+      -webkit-transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0);
+    }
+    100% {
+      -webkit-transform: translateY(-1000px) translateX(1000px);
+              transform: translateY(-1000px) translateX(1000px);
+    }
+}
+  @keyframes slide-tr {
+    0% {
+      -webkit-transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0);
+    }
+    100% {
+      -webkit-transform: translateY(-1000px) translateX(1000px);
+              transform: translateY(-1000px) translateX(1000px);
+    }
+}
+
+@-webkit-keyframes slide-tl {
+    0% {
+      -webkit-transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0);
+    }
+    100% {
+      -webkit-transform: translateY(-1000px) translateX(-1000px);
+              transform: translateY(-1000px) translateX(-1000px);
+    }
+}
+  @keyframes slide-tl {
+    0% {
+      -webkit-transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0);
+    }
+    100% {
+      -webkit-transform: translateY(-1000px) translateX(-100px);
+              transform: translateY(-1000px) translateX(-1000px);
+    }
+}
+  
+.div_totale_dislike{    
+    width: 80%; 
+    height: 70%; 
+    position: relative;
+    -webkit-animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .div_like{
@@ -263,6 +337,7 @@
 .div_like img{
     width: 10rem;
     margin: 2.5rem;
+    cursor: pointer;
 }
 
 .dashboard_section{
