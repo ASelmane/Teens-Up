@@ -29,6 +29,11 @@ class Sports
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $images;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -74,6 +79,18 @@ class Sports
         if ($this->users->removeElement($user)) {
             $user->removeSport($this);
         }
+
+        return $this;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    public function setImages(string $images): self
+    {
+        $this->images = $images;
 
         return $this;
     }

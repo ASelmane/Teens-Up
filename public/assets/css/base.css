@@ -57,17 +57,24 @@
 }
 
 .index_paragraphe h2{
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     margin-left: 5rem;
     margin-right: 5rem;
 }
-.index_paragraphe a{
+.boutton{
+    font-family: 'Montserrat', sans-serif;
     background: var(--degrade);
     padding: 1rem 2rem;
     color: white;
     border-radius: 10px;
     margin: 5rem;
+    font-size: 3rem;
+    margin-top: 1em;
+}
 
+.boutton.disabled{
+    background: linear-gradient(270deg, #777777 0%, #929292 100%);    
+    cursor:default;
 }
 
 .position{
@@ -82,16 +89,23 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 3rem;
+    text-transform: uppercase;
+    margin-top: 25%;
 }
 
-.login_form{
+.login_form, .register_form.active{
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     align-items: center;
 }
-
+.register_form, .btn{
+    display: none;
+}
+.btn.active{
+    display: flex;
+}
 .form_div{
     display: flex;
     align-items: flex-end;
@@ -108,19 +122,21 @@
     position: relative;
     width: 25rem;
     overflow: hidden;
-    height: 5rem;
+    height: 8rem;
 }
 
 .label_div input{
     width: 100%;
     height: 100%;
     padding-top: 20px;
+    font-size: 2rem;
 }
 
 .label_div label{
     position: absolute;
     bottom: 0;
     width: 100%;
+    font-size: 2rem;
     height: 100%;
     border-bottom: solid black 1px;
 }
@@ -132,7 +148,7 @@
     bottom: -1px;
     height: 100%;
     width: 100%;
-    border-bottom: solid blue 1px;
+    border-bottom: solid #824487 1px;
     transform: translateX(-100%);
     transition: all 0.5s ease;
 }
@@ -147,8 +163,8 @@
 .label_div input:focus + .label_name .content_name, 
 .label_div input:not(:placeholder-shown) + .label_name .content_name{
     transform: translateY(-200%);
-    font-size: 1.4rem;
-    color: blue;
+    font-size: 2rem;
+    color: #824487;
 }
 
 .label_div input:focus + .label_name::after, 
@@ -156,6 +172,141 @@
     transform: translateY(0%);
 }
 
+.inscription{
+    font-family: "MontSerrat";
+    font-size: 2rem;
+}
+
+.form_checkbox input[type=checkbox]{
+    display: none;
+}
+
+.checkbox_label{
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.form_checkbox input:checked + .checkbox_label{
+    border: solid black 3px;
+}
+
+.slider{
+    width: 40rem;
+    height: 2rem;
+    -webkit-appearance: none;
+    background: #B0ADC3;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: 4px solid #824487;
+    box-shadow: -407px 0 0 400px #824487;
+}
+
+.div_valeur{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.sport{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 25rem;
+}
+
+.sportImage{
+    width: 8rem;
+}
+
+.agree_div{
+    position: relative;
+}
+
+.agree_checkbox{
+    position: absolute;
+	left: 0;
+	opacity: 0.01;
+}
+
+.agree_checkbox + .agree_label{
+    position: relative;
+	padding-left: 2.3em;
+	font-size: 1.05em;
+	line-height: 1.7;
+	cursor: pointer; 
+}
+
+.agree_checkbox:not(:checked) + .agree_label::before{
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1.4em;
+	height: 1.4em;
+	border: 1px solid black;
+	background: #FFF;
+	border-radius: .2em;
+	box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+	transition: all .275s;
+}
+
+.agree_checkbox:checked + .agree_label::before{    
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1.4em;
+	height: 1.4em;
+	border-radius: .2em;
+	box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+    background: var(--degrade);	
+    transition: all .275s;
+}
+.agree_checkbox:not(:checked) + .agree_label::after,
+.agree_checkbox:checked + .agree_label::after{
+    content: '✔';
+	position: absolute;
+	top: 1.05rem;
+	left: .3rem;
+	font-size: 2rem;
+	color: white;
+	line-height: 0;
+	transition: all .2s;
+}
+
+.agree_checkbox:not(:checked) + .agree_label::after{
+    opacity: 0;
+	transform: scale(0) rotate(45deg);
+}
+
+.agree_checkbox:checked + .agree_label::after{
+    opacity: 1;
+	transform: scale(1) rotate(0);
+}
+
+.div_sports{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .myMessage{
     background-color: #824487;
     margin-bottom: 1em;

@@ -16,7 +16,7 @@
             </div>
         {% endif %}
         <div class="form_div">
-            <img src="{{ asset('/assets/svg/mail.svg') }}">
+            <img src="{{ asset('/assets/svg/name.svg') }}">
             <div class="label_div">
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder=" " required autofocus>
                 <label class="label_name" for="inputEmail">
@@ -29,7 +29,7 @@
             <div class="label_div">
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder=" " required>
                 <label class="label_name" for="inputPassword">
-                    <span class="content_name">Password</span>
+                    <span class="content_name">Mot de passe</span>
                 </label>
             </div>
         </div>
@@ -48,11 +48,11 @@
             </div>
         #}
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
+        <button class="boutton btn-lg btn-primary" type="submit">
+            Connexion
         </button>
     </form>
 
-    <a href="">Créer un compte
+    <a class="inscription" href="/register">Créer un compte</a>
 </section>
 {% endblock %}
