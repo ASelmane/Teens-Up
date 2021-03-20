@@ -16,21 +16,14 @@
 </section>
 <div class="position" id="infoposition"></div>
 
+{% endblock %}
+{% block javascripts %}
 <script>
-function maPosition(position) {
-  var infopos = position.coords.latitude +";"+position.coords.longitude;
-  document.getElementById("infoposition").innerHTML = infopos;
-}
-if(navigator.geolocation)
-  navigator.geolocation.getCurrentPosition(maPosition);
-
-function randomSVG(){
+    window.onload = function() {
     let svg = document.querySelector("#svg")
     let nombre = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-    let chemin = "../public/assets/svg/" + nombre + ".svg')"
-    console.log(chemin)
-    svg.src = chemin
-}
-
+    let chemin = "/assets/svg/" + nombre + ".svg"
+    svg.src = chemin;
+    }
 </script>
 {% endblock %}

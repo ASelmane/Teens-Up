@@ -10,7 +10,8 @@
 </div>
 <section class="section dashboard_section">
     <div class="info">
-    {% for user in users %}
+        {% if users|length != 0 %}
+        {% for user in users %}
         <div class="div_totale">
             <div class="user_card">
                 <div class="image_degrade">
@@ -27,48 +28,26 @@
                     {% for userSport in user.sport %}
                     <span>{{ userSport.nom }} </span>
                     {% endfor %}<br />
-                    <!--<span>{{ user.lastLocation }}</span>-->
                     <br />
                 </div>
 
                 <br><br>
             </div>
                 <div class="div_like">
-                    <button id="dislike"><img src="{{ asset('/assets/svg/dislike.svg') }}"><button><br>
-                    <button id="like"><img src="{{ asset('/assets/svg/like.svg') }}"></button>
+                    <a id="dislike" class="js-dislike" href="{{ path('dislikes', {'id': user.id}) }}"><img src="{{ asset('/assets/svg/dislike.svg') }}"><a><br>
+                    <a id="like" class="js-like" href="{{ path('likes', {'id': user.id}) }}"><img src="{{ asset('/assets/svg/like.svg') }}"></a>
                 </div>
         </div>
-            {% endfor %}
-
+        {% endfor %}
+        {% else %}
+            <span>Plus aucun profil à vous présenter</span>
+        {% endif %}
+    
     </div>
 
 </section>
-<script>
-    var dislikes = document.querySelectorAll("#dislike")
-    var likes = document.querySelectorAll("#like")
 
-    function next(e){
-        let type = e.path[1].id
-
-        if(type == "like"){
-            e.path[3].children[0].className = "div_totale_like"
-        }
-        else if(type == "dislike"){
-            e.path[3].children[0].className = "div_totale_dislike"
-        }
-        setTimeout(function(){
-            e.path[4].removeChild(e.path[3])
-        }, 250); 
-    }
-
-    likes.forEach(like =>{
-        like.addEventListener("click", next)
-    })
-
-    dislikes.forEach(dislike =>{
-        dislike.addEventListener("click", next)
-    })
-
-    
-</script>
-    {% endblock %}
+{% endblock %}
+{% block javascripts %}
+        <script src="{{ asset('/assets/js/dashboard.js') }}"></script>
+{% endblock %}
