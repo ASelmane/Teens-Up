@@ -85,7 +85,7 @@
     justify-content: space-around
 }
 
-.section_login h2{
+.section_login h2, .section_edit h2{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 3rem;
@@ -555,4 +555,31 @@
 
 .user_administration .boutton{
     margin: 0;
+}
+
+.section_edit{
+    justify-content: space-between;
+}
+
+.section_edit form:first-child{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.form_edit{
+    width: 100%;
+    height: 50%;    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.form_edit div{
+    display: flex;
+    flex-direction: column;
 }
