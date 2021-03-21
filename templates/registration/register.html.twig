@@ -1,9 +1,23 @@
-{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block body %} {% for flashError in app.flashes('verify_email_error') %}
+{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} 
+{% block body %} 
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('app_login') }}">
+            <img src="{{ asset('/assets/svg/back.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+            <h1>Teens'Up</h1>
+    </div>
+</div>
+</div>
+</header>
+{% for flashError in app.flashes('verify_email_error') %}
 <div class="alert alert-danger" role="alert">{{ flashError }}</div>
 {% endfor %}
 <section class="section section_login">
     <h2>Inscription</h2>
-    <form name="registration_form" method="post">
+    <form name="registration_form" class="registration_form" method="post">
         <div id="form1" class="register_form active">
             <div class="form_div">
                 <img src="{{ asset('/assets/svg/name.svg') }}" />
@@ -71,12 +85,13 @@
             
         </div>
         <div class="register_form" id="form3">
-            <input type="range" min="1" max="100" value="50" class="slider" id="registration_form_distance" name="registration_form[distance]" onmousemove="rangeSlide(this.value)" onChange="rangeSlide(this.value)" />
-            <div class="div_valeur">
-                <span>1km</span>
-                <span id="rangeValue">50</span>
-                <span>100km</span>
-            </div>
+            <h3>Distance maximale</h3>
+                <input type="range" min="1" max="100" value="50" class="slider" id="registration_form_distance" name="registration_form[distance]" onmousemove="rangeSlide(this.value)" onChange="rangeSlide(this.value)" />
+                <div class="div_valeur">
+                    <span>1km</span>
+                    <span id="rangeValue">50</span>
+                    <span>100km</span>
+                </div>
             <input type="hidden" id="registration_form_last_location" name="registration_form[last_location]"/>
             {{ form_row(registrationForm._token) }}
             <input type="submit" id="submit3" value="S'inscrire" class="boutton btn" />

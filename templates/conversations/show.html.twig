@@ -3,7 +3,26 @@
 {% block title %}Conversations{% endblock %}
 
 {% block body %}
-<a href="{{ path('conversations_index') }}">back to list</a>
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('conversations_index') }}">
+            <img src="{{ asset('/assets/svg/back.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+        <a href="{{ path('dashboard') }}">
+            <h1>Teens'Up</h1>
+        </a>
+    </div>
+    <div class="header_flex right">
+        <a href="{{ path('conversations_index') }}">
+            <img src="{{ asset('/assets/svg/delete.svg') }}">
+        </a>
+    </div>
+</div>
+</div>
+</header>
+
 {{ include('conversations/_delete_form.html.twig') }}
 
     {% for user in conversation.users %}

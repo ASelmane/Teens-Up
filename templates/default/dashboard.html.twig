@@ -1,13 +1,23 @@
-{% extends 'base.html.twig' %} {% block title %}Dashboard{% endblock %} {% block body %}
-<div class="info_perso">
-    <h1>Mes Infos</h1>
-    <h3>{{ app.user.prenom }}</h3>
-    <h3>{{app.user.getAge()}} ans</h3>
-    {% for userSport in app.user.sport %}
-    <span>{{ userSport.nom }}</span>
-    {% endfor %}<br />
-    <span>{{ app.user.lastLocation }}</span>
+{% extends 'base.html.twig' %} {% block title %}Dashboard{% endblock %} 
+
+{% block body %}
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('profil') }}">
+            <img src="{{ asset('/assets/svg/profil.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+        <h1>Teens'Up</h1>
+    </div>
+    <div class="header_flex right">
+        <a href="{{ path('conversations_index') }}">
+            <img src="{{ asset('/assets/svg/message.svg') }}">
+        </a>
+    </div>
 </div>
+</div>
+</header>
 <section class="section dashboard_section">
     <div class="info">
         {% if users|length != 0 %}
@@ -15,7 +25,7 @@
         <div class="div_totale">
             <div class="user_card">
                 <div class="image_degrade">
-                    <img class="image_profil" src="https://fr.web.img5.acsta.net/pictures/19/08/09/14/53/1842996.jpg">
+                    <img class="image_profil" src="/{{ user.images}}">
                 </div>
                 <div class="infos_user">
                     <h3>{{ user.prenom}}, {{user.getAge()}} ans</h3>

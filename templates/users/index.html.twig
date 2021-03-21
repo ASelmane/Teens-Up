@@ -3,6 +3,25 @@
 {% block title %}Users{% endblock %}
 
 {% block body %}
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('dashboard') }}">
+            <img src="{{ asset('/assets/svg/back.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+        <a href="{{ path('dashboard') }}">
+            <h1>Teens'Up</h1>
+        </a>
+    </div>
+    <div class="header_flex right">
+        <a href="{{ path('app_logout') }}">
+            <img src="{{ asset('/assets/svg/logout.svg') }}">
+        </a>
+    </div>
+</div>
+</div>
+</header>
 <a href="{{ path('dashboard') }}">back to dashboard</a><br>
     <h1>Users</h1>
     <table class="table">
