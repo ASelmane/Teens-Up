@@ -3,6 +3,20 @@
 {% block title %}Conversations index{% endblock %}
 
 {% block body %}
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('dashboard') }}">
+            <img src="{{ asset('/assets/svg/back.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+        <a href="{{ path('dashboard') }}">
+            <h1>Teens'Up</h1>
+        </a>
+    </div>
+</div>
+</div>
+</header>
 <h2>Conversations</h2>
 {% for conversation in app.user.conversations %}
 <hr>
