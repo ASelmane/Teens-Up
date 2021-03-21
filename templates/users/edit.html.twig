@@ -1,10 +1,39 @@
 {% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} {% block body %}
+<a class="previous_page" href="{{ path('profil') }}">←</a>
 <section class="section section_edit">
 <h2>Modifier Profil {{ app.user.prenom }}</h2>
 
+<form class="form_edit" name="users" method="post" enctype="multipart/form-data">
+    <div id="users" class="div_form">
+        <div>
+            <label class="" for="users_images">Choisir une image de profil</label>
+            <input class="image_edit" type="file" id="users_images" name="users[images]">
+        </div>
+        <div class="form_div">
+            <div class="label_div">
+                <input type="textarea" name="users[description]" id="users[description]" class="form-control" placeholder=" " required autofocus />
+                <label class="label_name required" for="users[description]">
+                    <span class="content_name">Description</span>
+                </label>
+            </div>
+        </div>
+        <div class="form_checkbox">
+            <div class="div_sports">
+                <div class="sport" id="users_sport">
+                    <input type="checkbox" id="sport.id" name="sport" value="">
+                    <label class="checkbox_label" for="sport.id">
+                        <img class="sportImage" src="{{ asset('/assets/svg/name.svg') }}"/><br>
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="users__token" name="users[_token]" value="G-Do5fs6KzGok_gl_KT69dZ2fIZa7ANNv3zn71qxJlQ">
+    </div>
+    <button class="boutton">Save</button>
+</form>
 
-{{ include('users/_form.html.twig') }}
-<a class="boutton" href="{{ path('profil') }}">back to list</a>
+
 
 {{ include("users/_delete_form.html.twig") }}
 </section>

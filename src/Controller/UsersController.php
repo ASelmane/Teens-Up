@@ -76,7 +76,7 @@ class UsersController extends AbstractController
                 $em->flush();
                 
                 
-                $this->addFlash('success', 'Profil mis à jour avec succès.');
+                $this->addFlash('success', '<p>Profil mis à jour avec succès.</p>');
                 return $this->redirectToRoute('profil');
             
         }
