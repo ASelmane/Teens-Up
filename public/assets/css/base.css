@@ -515,6 +515,19 @@
     z-index: 5;
 }
 
+.conv_page{
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    color: white;
+    font-size: 5rem;
+    z-index: 5;  
+}
+
+.conv_page img{
+    width: 4rem;
+}
+
 .table img{
     width: 95%;
 }
@@ -645,4 +658,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.previous_page img{
+    width: 4rem;
 }
