@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\LikesRepository;
 use App\Repository\UsersRepository;
 use phpDocumentor\Reflection\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +25,7 @@ class DefaultController extends AbstractController
     /**
     * @Route("/dashboard", name="dashboard")
      */
-    public function dashboard(UsersRepository $usersRepository)
+    public function dashboard(LikesRepository $likesRepository)
     {
         $user = $this->getUser();
         $user_id = $user->getId();
@@ -33,13 +34,28 @@ class DefaultController extends AbstractController
         $location = explode(';', $user->getLastLocation());
         $latitude = $location[0];
         $longitude = $location[1];
+        $likes = $likesRepository->findBy(array('users' => $user_id));
+        $users_liked= array();
+        $listUsers= array();
+
+        foreach ($likes as $like) {
+            $users_liked[]=$like->getUsersLiked();
+        }
 
         foreach ($user_sports as $sport) {
             $sportUsers = $sport->getUsers();
             foreach ($sportUsers as $users) {
                 $distance_km = $users->getDistanceOpt($latitude, $longitude);
-                if (($users->getId() != $user_id) && (($distance_km <= $user_distance) && ($distance_km <= $users->getDistance()))) {
-                    $listUsers[] = $users;
+                if (count($users_liked) != 0) {
+                    if (!in_array($users, $users_liked)) {
+                        if (($users->getId() != $user_id) && (($distance_km <= $user_distance) && ($distance_km <= $users->getDistance()))) {
+                            $listUsers[] = $users;
+                        }
+                    }
+                } else {
+                    if (($users->getId() != $user_id) && (($distance_km <= $user_distance) && ($distance_km <= $users->getDistance()))) {
+                        $listUsers[] = $users;
+                    }
                 }
             }
         }

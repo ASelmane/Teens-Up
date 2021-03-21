@@ -12,10 +12,6 @@
             <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
     <header>
         <div class="header">
@@ -35,5 +31,8 @@
     </header>
     <body>
         {% block body %}{% endblock %}
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        {% block javascripts %} {% endblock %}
     </body>
 </html>
