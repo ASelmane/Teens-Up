@@ -167,7 +167,9 @@
 .conversations-div{
     
     display: flex;
-    
+      display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 0em;
     
 }
 
@@ -193,8 +195,15 @@
 .conversation-prenom{
     margin-left: 2em;
 }
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-gap: 0em;
 }
+
+
+ 
+  .container {
+    padding: 2px 16px;
+  }
