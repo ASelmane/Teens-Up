@@ -105,7 +105,7 @@
     justify-content: space-around
 }
 
-.section_login h2{
+.section_login h2, .section_message h2{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 3rem;
@@ -199,7 +199,6 @@
     text-decoration:underline;
 }
 .inscription h2{
-    
     margin-top: 0;
 }
 
@@ -338,14 +337,52 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.message{
+    font-size: 2rem;
+    font-family: "MontSerrat";
+    padding: 1rem;
+    word-wrap: break-word;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.div_message_me{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    align-self: flex-end;
+}
+
+.div_message_me img,
+.div_message_other img{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
 .myMessage{
-    background-color: #824487;
-    margin-bottom: 1em;
+    background: var(--degrade);
     color: white;
+    width: 40%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.div_message_other{
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
 }
 .otherMessage{
-    background-color: rgb(189, 189, 189);
-    margin-bottom: 1em;
+    background-color: #F7F7F7;
+    width: 40%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .info_perso{
@@ -524,4 +561,55 @@
 
 .dashboard_section{
     overflow: hidden;
+}
+
+.section_message{
+    justify-content: space-around;
+}
+
+.messages{
+    max-height: 80%;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-bottom: 10rem;
+    overflow: hidden;
+}
+
+.section_message form{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-around; 
+    font-family: "MontSerrat";
+    margin-bottom: 2rem;
+}
+
+.section_message>form label{
+    display: none;
+}
+
+.section_message>form div{
+    width: 100%;
+}
+
+.section_message textarea{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 5rem;
+}
+
+.boutton_send{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin: 0;
+}
+
+.boutton_send img{
+    width: 3rem;
+    height: 3rem;
 }
