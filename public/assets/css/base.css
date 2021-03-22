@@ -617,6 +617,7 @@
     height: 8rem;
     font-size: 3rem;
     padding: 0.3em;
+    resize: none;
 }
 
 .boutton_send{
