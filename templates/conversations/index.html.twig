@@ -19,33 +19,37 @@
 </header>
 <section class="section section_message">
     <h2>Conversations</h2>
-    {% for conversation in app.user.conversations %}
     <div class="conversations" id="div_conversations">
+    {% for conversation in app.user.conversations %}
         {% for user in conversation.users %}
             {% if user != app.user %}
                 <div class="conversation">
+                    <a href='{{ path('conversations_show', {'id': conversation.id}) }}'>
                     <img src="/{{user.images}}">
                     <div class="conversation_div">
-                        <a class="conversation_nom" href='{{ path('conversations_show', {'id': conversation.id}) }}'>{{user.prenom}}</a>
+                        <span class="conversation_nom">{{user.prenom}}</span>
                         <div class="conversation_infos">
-                            <span>{{ conversation.lastMessage ? conversation.lastMessage|date('d/m/Y') : '' }} à {{ conversation.lastMessage ? conversation.lastMessage|date('H:i')}}</span>
+                            <span>
+                                {% for message in lastMsg %}
+                                    {% if message.conversations == conversation %}
+                                        {% if message.users == app.user %}
+                                        ↪
+                                        {% endif %}
+                                        {{message.messages}}
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
                         </div>
                     </div>
+                    </a>
                     <br>
                 </div>
             {% endif %}
             <br>
         {% endfor %}
-    </div>
+   
     {% endfor %}
+</div>
 </section>
-<script>
-    let conversations = document.getElementById("div_conversations")
 
-    function scrollDown(){
-        conversations.scrollTo(0,5000)
-    }
-
-    document.onload = scrollDown()
-</script>
 {% endblock %}

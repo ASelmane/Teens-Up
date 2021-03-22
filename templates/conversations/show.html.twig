@@ -45,11 +45,21 @@
                     {{ message.date ? message.date|date('H:i d-m-Y')}}
                 </div>
             </div>
+            <div class="div_message_other message">
+                <img src="/{{message.users.images}}">
+                <div class="otherMessage ">
+                    <p>{{message.messages}}</p>
+                    {{ message.date ? message.date|date('H:i d-m-Y')}}
+                </div>
+            </div>
         {% endif %}
         
     {% endfor %}
 </div>
+<div class="send">
     {{ include('conversations/_form.html.twig') }}
+</div>
+    
 </section>
 
 <script>

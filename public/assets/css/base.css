@@ -366,7 +366,8 @@
 .myMessage{
     background: var(--degrade);
     color: white;
-    width: 40%;
+    width: fit-content;
+    max-width: 60%;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -379,7 +380,8 @@
 }
 .otherMessage{
     background-color: #F7F7F7;
-    width: 40%;
+    width: fit-content;
+    max-width: 60%;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -564,7 +566,7 @@
 }
 
 .section_message{
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .messages{
@@ -572,8 +574,18 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10rem;
+    padding-bottom: 23vh;
+    margin-top: 3em;
     overflow-x: scroll;
+}
+.send{
+    width: 100%;
+    height: 20vh;
+    background-color: #F3F3F3;
+    box-shadow: 0 0 70px black;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
 }
 
 .section_message form{
@@ -582,29 +594,34 @@
     width: 90%;
     justify-content: space-around; 
     font-family: "MontSerrat";
-    margin-bottom: 2rem;
+    margin: 4rem auto 2rem auto;
+    background-color: white;
+    border: 4px solid #824487;
+    border-radius: 15px;
 }
 
-.section_message>form label{
+.send>form label{
     display: none;
 }
 
-.section_message>form div{
+.send>form div{
     width: 100%;
 }
 
-.section_message textarea{
+.send textarea{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 100%;
-    height: 5rem;
+    height: 8rem;
+    font-size: 3rem;
+    padding: 0.3em;
 }
 
 .boutton_send{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 5rem;
-    height: 5rem;
+    width: 8rem;
+    height: 8rem;
     margin: 0;
 }
 
@@ -614,13 +631,13 @@
 }
 
 .conversations{
-    height: 80%;
+    height: 75vh;
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    overflow: scroll;
+    overflow: auto;
+    scroll-behavior: revert;
 }
 
 .conversation{
@@ -629,7 +646,11 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: "MontSerrat";
     display: flex;
-    margin-top: 1rem
+    margin-top: 3rem
+}
+.conversation a{
+    display: flex;
+    width: 100%;
 }
 
 .conversation img{
