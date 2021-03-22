@@ -1,8 +1,4 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Users{% endblock %}
-
-{% block body %}
+{% extends 'base.html.twig' %} {% block title %}Users{% endblock %} {% block body %}
 <div class="header_div">
     <div class="header_flex">
         <a href="{{ path('dashboard') }}">
@@ -22,37 +18,25 @@
 </div>
 </div>
 </header>
-<a href="{{ path('dashboard') }}">back to dashboard</a><br>
-    <h1>Users</h1>
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Email</th>
-                <td>{{ app.user.email }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ app.user.prenom }}</td>
-            </tr>
-            <tr>
-                <th>images</th>
-                <td><img src="/{{ app.user.images }}" alt=""></td>
-            </tr>
-            <tr>
-                <th>Ddn</th>
-                <td>{{ app.user.ddn ? app.user.ddn|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>description</th>
-                <td>{{ app.user.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    
-
-    <a href="{{ path('profil_edit')}}">Modifier le profil</a><br>
-    <a href="{{ path('password_edit')}}">Changer de mot de passe</a>
-
-    {{ include('users/_delete_form.html.twig') }}
+<section class="section">
+    <div class="table">
+        <img src="/{{ app.user.images }}" alt="" />
+        <div class="user_infos">
+            <div class="user_titre">
+                <p class="user_prenom">{{ app.user.prenom }}, &nbsp</p>
+                <p class="user_age">{{ app.user.age }} ans</p>
+            </div>
+            <div class="info_sport">
+                {% for userSport in app.user.sport %}
+                <span>{{ userSport.nom }}</span>
+                {% endfor %}
+            </div>
+            <p class="user_description">{{ app.user.description|nl2br }}</p>
+            <div class="user_administration">
+                <a class="boutton" href="{{ path('profil_edit') }}">Modifier le profil</a><br />
+                <a class="modif_mdp" href="{{ path('password_edit') }}">Changer de mot de passe</a>
+            </div>
+        </div>
+    </div>
+</section
 {% endblock %}

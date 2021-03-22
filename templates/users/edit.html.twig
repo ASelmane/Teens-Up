@@ -1,5 +1,5 @@
-{% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} 
 
+{% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} 
 {% block body %}
 <div class="header_div">
     <div class="header_flex">
@@ -15,9 +15,58 @@
 </div>
 </div>
 </header>
-<h1>Modifier Profil {{ app.user.prenom }}</h1>
+<section class="section section_edit">
+    <div class="form_image">
+        <form class="form_edit" name="users" method="post" enctype="multipart/form-data">
+            <div id="users" class="div_form">
+                <div class="contour">
+                    <label class="editImage_label" for="users_images">
+                        <img class="upload" src="{{ asset('/assets/svg/upload.svg') }}">
+                        {% if app.user.images == "" %}
+                        <img id="editImage" src="/images/profil/Portrait.png" />
+                        {% else %}
+                        <img id="editImage" src="/{{ app.user.images }}" />
+                        {% endif %}
+                    </label>
 
-{{ include("users/_form.html.twig") }}
-
-{{ include("users/_delete_form.html.twig") }}
+                    <input class="image_edit" type="file" id="users_images" name="users[images]" onchange="document.getElementById('editImage').src = window.URL.createObjectURL(this.files[0])" />
+                </div>
+                <div class="">
+                    <div class="label_div desc">
+                        Description
+                        <textarea name="users[description]" id="users[description]" class="form-control">{{ user.description }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="form_checkbox modal_overflow">
+                        <div class="div_sports" id="users_sport">
+                            {% for sport in sports %}
+                            <div class="sport">
+                                <input type="checkbox" id="users_sport_{{ sport.id }}" name="users[sport][]" value="{{ sport.id }}" {% for userSport in user.sport %} {% if userSport == sport %} checked {% endif %} {% endfor %} >
+                                <label class="checkbox_label" for="users_sport_{{ sport.id }}">
+                                    <img class="sportImage" src="/{{ sport.images }}" /><br />
+                                    <span>{{ sport.nom }}</span>
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="users[_token]" value="{{ csrf_token('users') }}" />
+            <button class="boutton">Save</button>
+        </form>
+    </div>
+    <div>
+        <button id="myBtn">Les Sports +</button>
+    </div>
+    <div>
+        {{ include("users/_delete_form.html.twig") }}
+    </div>
+</section>
+{% endblock %} {% block javascripts %}
+<script src="{{ asset('/assets/js/edit.js') }}"></script>
 {% endblock %}
