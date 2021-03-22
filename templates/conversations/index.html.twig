@@ -17,17 +17,35 @@
 </div>
 </div>
 </header>
-<h2>Conversations</h2>
-{% for conversation in app.user.conversations %}
-<hr>
-    {% for user in conversation.users %}
-        {% if user != app.user %}
-            <a href='{{ path('conversations_show', {'id': conversation.id}) }}'>{{user.prenom}}</a>
-            <span>{{ conversation.lastMessage ? conversation.lastMessage|date('d/m/Y') : '' }} à {{ conversation.lastMessage ? conversation.lastMessage|date('H:i')}}</span>
+<section class="section section_message">
+    <h2>Conversations</h2>
+    {% for conversation in app.user.conversations %}
+    <div class="conversations" id="div_conversations">
+        {% for user in conversation.users %}
+            {% if user != app.user %}
+                <div class="conversation">
+                    <img src="/{{user.images}}">
+                    <div class="conversation_div">
+                        <a class="conversation_nom" href='{{ path('conversations_show', {'id': conversation.id}) }}'>{{user.prenom}}</a>
+                        <div class="conversation_infos">
+                            <span>{{ conversation.lastMessage ? conversation.lastMessage|date('d/m/Y') : '' }} à {{ conversation.lastMessage ? conversation.lastMessage|date('H:i')}}</span>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            {% endif %}
             <br>
-        {% endif %}
-        <br>
+        {% endfor %}
+    </div>
     {% endfor %}
-<hr>
-{% endfor %}
+</section>
+<script>
+    let conversations = document.getElementById("div_conversations")
+
+    function scrollDown(){
+        conversations.scrollTo(0,5000)
+    }
+
+    document.onload = scrollDown()
+</script>
 {% endblock %}

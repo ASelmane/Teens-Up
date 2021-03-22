@@ -571,10 +571,9 @@
     max-height: 80%;
     width: 90%;
     display: flex;
-    justify-content: flex-end;
     flex-direction: column;
     margin-bottom: 10rem;
-    overflow: hidden;
+    overflow-x: scroll;
 }
 
 .section_message form{
@@ -612,4 +611,45 @@
 .boutton_send img{
     width: 3rem;
     height: 3rem;
+}
+
+.conversations{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow: scroll;
+}
+
+.conversation{
+    height: 12rem;
+    width: 90%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: "MontSerrat";
+    display: flex;
+    margin-top: 1rem
+}
+
+.conversation img{
+    height: 12rem;
+    width: 12rem;
+    object-fit: cover; 
+}
+
+.conversation_nom{
+    font-weight: bold;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.conversation_div{
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 2rem;
+}
+
+.conversation_infos{
+    margin-top: 1rem;
 }
