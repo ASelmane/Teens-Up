@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use App\Form\UsersType;
+use App\Repository\SportsRepository;
 use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -30,7 +31,7 @@ class UsersController extends AbstractController
     /**
     * @Route ("/edit" , name="profil_edit")
     */
-    public function edit(Request $request)
+    public function edit(Request $request, SportsRepository $sportsRepository)
     {
         $user= $this->getUser();
         $img = $user->getImages();
@@ -82,7 +83,9 @@ class UsersController extends AbstractController
         }
 
         return $this->render('users/edit.html.twig', [
+            'user' => $user,
             'form' => $form->createView(),
+            'sports' => $sportsRepository->findAll(),
         ]);
     }
 

@@ -1,28 +1,25 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Users{% endblock %}
-
-{% block body %}
-<a class="previous_page" href="{{ path('dashboard') }}">←</a><br>
+{% extends 'base.html.twig' %} {% block title %}Users{% endblock %} {% block body %}
 <section class="section">
     <div class="table">
-        <img src="https://fr.web.img5.acsta.net/pictures/19/08/09/14/53/1842996.jpg{{ app.user.images }}" alt="">
-        
+        <img src="/{{ app.user.images }}" alt="" />
+
         <div class="user_infos">
             <div class="user_titre">
                 <p class="user_prenom">{{ app.user.prenom }}, &nbsp</p>
-                <p class="user_age">{{ app.user.ddn ? app.user.ddn|date('Y-m-d') : '' }}</p>
+                <p class="user_age">{{ app.user.age }} ans</p>
             </div>
-
-            <p class="user_description">{{ app.user.description }}</p>
+            <div class="info_sport">
+                {% for userSport in app.user.sport %}
+                <span>{{ userSport.nom }}</span>
+                {% endfor %}
+            </div>
+            <p class="user_description">{{ app.user.description|nl2br }}</p>
 
             <div class="user_administration">
-                <a class="boutton" href="{{ path('profil_edit')}}">Modifier le profil</a><br>
-                <a class="modif_mdp" href="{{ path('password_edit')}}">Changer de mot de passe</a>
+                <a class="boutton" href="{{ path('profil_edit') }}">Modifier le profil</a><br />
+                <a class="modif_mdp" href="{{ path('password_edit') }}">Changer de mot de passe</a>
             </div>
         </div>
     </div>
-    
-    {{ include('users/_delete_form.html.twig') }}
 </section>
 {% endblock %}

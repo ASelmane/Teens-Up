@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} {% block body %}
-<a class="previous_page" href="{{ path('profil') }}">←</a>
 <section class="section section_edit">
 <h2>Modifier Profil {{ app.user.prenom }}</h2>
-
 <form class="form_edit" name="users" method="post" enctype="multipart/form-data">
     <div id="users" class="div_form">
         <div>
@@ -11,30 +9,45 @@
         </div>
         <div class="form_div">
             <div class="label_div">
-                <input type="textarea" name="users[description]" id="users[description]" class="form-control" placeholder=" " required autofocus />
-                <label class="label_name required" for="users[description]">
-                    <span class="content_name">Description</span>
-                </label>
+                Description
+                <textarea name="users[description]" id="users[description]" class="form-control">{{user.description}}</textarea>
+                
             </div>
         </div>
-        <div class="form_checkbox">
-            <div class="div_sports">
-                <div class="sport" id="users_sport">
-                    <input type="checkbox" id="sport.id" name="sport" value="">
-                    <label class="checkbox_label" for="sport.id">
-                        <img class="sportImage" src="{{ asset('/assets/svg/name.svg') }}"/><br>
-                        <span></span>
-                    </label>
+    </div>
+    <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form_checkbox modal_overflow">
+                    <div class="div_sports" id="users_sport">
+                        {% for sport in sports %}
+                        <div class="sport">
+                            <input type="checkbox" id="users_sport_{{sport.id}}" name="users[sport][]" value="{{sport.id}}"
+                            {% for userSport in user.sport %}
+                                {% if userSport == sport %}
+                                 checked
+                                {% endif %}
+                            {% endfor %}
+                            >
+                            <label class="checkbox_label" for="users_sport_{{sport.id}}">
+                                <img class="sportImage" src="/{{sport.images}}"/><br>
+                                <span>{{sport.nom}}</span>
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <input type="hidden" id="users__token" name="users[_token]" value="G-Do5fs6KzGok_gl_KT69dZ2fIZa7ANNv3zn71qxJlQ">
     </div>
+    <input type="hidden" name="users[_token]" value="{{ csrf_token('users') }}">
     <button class="boutton">Save</button>
 </form>
 
-
+<button id="myBtn">Les Sports +</button>
 
 {{ include("users/_delete_form.html.twig") }}
 </section>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('/assets/js/edit.js') }}"></script>
 {% endblock %}
