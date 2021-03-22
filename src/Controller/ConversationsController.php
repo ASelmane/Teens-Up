@@ -24,7 +24,19 @@ class ConversationsController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('conversations/index.html.twig');
+        $user =$this->getUser();
+        $lastMsg = array();
+        foreach ($user->getConversations() as $conversations) {
+            foreach ($conversations->getMessages() as $message) {
+                    if($conversations->getLastMessage() == $message->getDate()){
+                        $lastMsg[]= $message;
+                    }
+            }
+        }
+        
+        return $this->render('conversations/index.html.twig', [
+            'lastMsg' => $lastMsg
+        ]);
     }
 
     /**

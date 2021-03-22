@@ -25,28 +25,50 @@
 
 {{ include('conversations/_delete_form.html.twig') }}
 
-    {% for user in conversation.users %}
-        {% if user != app.user %}
-        <h1>{{user.prenom}}</h1>
-        {% endif %}
-    {% endfor %}
-
+<section class="section section_message">
+<h2>{{conversation.users[1].prenom}}</h2>
+<div class="messages" id="div_messages">
     {% for message in conversation.messages %}
         {% if message.users == app.user %}
-            <div class="myMessage">
-                <h3>{{message.users.prenom}}</h3>
-                <p>{{message.messages}}</p>
-                {{ message.date ? message.date|date('H:i d-m-Y')}}
+            <div class="div_message_me message">
+                <img src="/{{message.users.images}}">
+                <div class="myMessage ">
+                    <p>{{message.messages}}</p>
+                    {{ message.date ? message.date|date('H:i d-m-Y')}}
+                </div>
             </div>
         {% else %}
-            <div class="otherMessage">
-                <h3>{{message.users.prenom}}</h3>
-                <p>{{message.messages}}</p>
-                {{ message.date ? message.date|date('H:i d-m-Y')}}
+            <div class="div_message_other message">
+                <img src="/{{message.users.images}}">
+                <div class="otherMessage ">
+                    <p>{{message.messages}}</p>
+                    {{ message.date ? message.date|date('H:i d-m-Y')}}
+                </div>
+            </div>
+            <div class="div_message_other message">
+                <img src="/{{message.users.images}}">
+                <div class="otherMessage ">
+                    <p>{{message.messages}}</p>
+                    {{ message.date ? message.date|date('H:i d-m-Y')}}
+                </div>
             </div>
         {% endif %}
         
     {% endfor %}
+</div>
+<div class="send">
     {{ include('conversations/_form.html.twig') }}
+</div>
     
+</section>
+
+<script>
+    let messages = document.getElementById("div_messages")
+
+    function scrollDown(){
+        messages.scrollTo(0,5000)
+    }
+
+    document.onload = scrollDown()
+</script>
 {% endblock %}

@@ -106,7 +106,9 @@
     justify-content: space-around
 }
 
-.section_login h2, .section_edit h2{
+
+.section_login h2, .section_edit h2, .section_message h2{{
+
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 3rem;
@@ -200,7 +202,6 @@
     text-decoration:underline;
 }
 .inscription h2{
-    
     margin-top: 0;
 }
 
@@ -339,14 +340,54 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.message{
+    font-size: 2rem;
+    font-family: "MontSerrat";
+    padding: 1rem;
+    word-wrap: break-word;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.div_message_me{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    align-self: flex-end;
+}
+
+.div_message_me img,
+.div_message_other img{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
 .myMessage{
-    background-color: #824487;
-    margin-bottom: 1em;
+    background: var(--degrade);
     color: white;
+    width: fit-content;
+    max-width: 60%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.div_message_other{
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
 }
 .otherMessage{
-    background-color: rgb(189, 189, 189);
-    margin-bottom: 1em;
+    background-color: #F7F7F7;
+    width: fit-content;
+    max-width: 60%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .info_perso{
@@ -526,6 +567,115 @@
 .dashboard_section{
     overflow: hidden;
 }
+
+.section_message{
+    justify-content: flex-start;
+}
+
+.messages{
+    max-height: 80%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 23vh;
+    margin-top: 3em;
+    overflow-x: scroll;
+}
+.send{
+    width: 100%;
+    height: 20vh;
+    background-color: #F3F3F3;
+    box-shadow: 0 0 70px black;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+}
+
+.section_message form{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-around; 
+    font-family: "MontSerrat";
+    margin: 4rem auto 2rem auto;
+    background-color: white;
+    border: 4px solid #824487;
+    border-radius: 15px;
+}
+
+.send>form label{
+    display: none;
+}
+
+.send>form div{
+    width: 100%;
+}
+
+.send textarea{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 8rem;
+    font-size: 3rem;
+    padding: 0.3em;
+}
+
+.boutton_send{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    height: 8rem;
+    margin: 0;
+}
+
+.boutton_send img{
+    width: 3rem;
+    height: 3rem;
+}
+
+.conversations{
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+    scroll-behavior: revert;
+}
+
+.conversation{
+    height: 12rem;
+    width: 90%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: "MontSerrat";
+    display: flex;
+    margin-top: 3rem
+}
+.conversation a{
+    display: flex;
+    width: 100%;
+}
+
+.conversation img{
+    height: 12rem;
+    width: 12rem;
+    object-fit: cover; 
+}
+
+.conversation_nom{
+    font-weight: bold;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.conversation_div{
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 2rem;
+}
+
+.conversation_infos{
+    margin-top: 1rem;
 
 .table{
     font-family: "MontSerrat";
