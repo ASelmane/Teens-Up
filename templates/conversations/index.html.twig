@@ -9,24 +9,35 @@
 
 {% for conversation in app.user.conversations %}
 <hr>
-<div class="conversations-div">
+
     {% for user in conversation.users %}
         {% if user != app.user %}
+
         
             <a href='{{ path('conversations_show', {'id': conversation.id}) }}'>
-               
+               <div class="cards">
+
+               <div>
+                <img class="conversation-picture"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToP6UNzijwa2BofKf1e99y9thc5bG01_2_zg&usqp=CAU">
+           
+               </div>
+
+
+               <div class="conversation-div">
                 <h2 class="conversation-prenom">{{user.prenom}}</h2>
-               
+
             <p class="conversation-message">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-        
+        </div>
+</div>
         </a>
         {% endif %}
         
     {% endfor %}
 
 <hr>
-</div>
+
 {% endfor %}
 {% endblock %}

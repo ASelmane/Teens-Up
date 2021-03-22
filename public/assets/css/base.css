@@ -166,12 +166,35 @@
 
 .conversations-div{
     
-    float: inotial;
+    display: flex;
+    
     
 }
 
 
 .conversation-titre {
     font-weight: bolder;
+    margin-left: 0.5em;
+    
    
+}
+
+.conversation-message{
+    margin-left: 2em;
+    
+}
+
+.conversation-picture{
+    width: 75px;
+    display: flex;
+       
+}
+
+.conversation-prenom{
+    margin-left: 2em;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 0em;
 }
