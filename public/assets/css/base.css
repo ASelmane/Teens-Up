@@ -6,6 +6,7 @@
     overflow: hidden;
     display: flex;
     height: fit-content;
+    z-index: 15;
 
 }
 .header_circle{
@@ -20,7 +21,6 @@
     position: absolute;
     width: 86%;
     height: 8vh;
-    z-index: 1;
     display: flex;
     margin: 2vh 7% 0 7%;
 }
