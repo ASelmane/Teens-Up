@@ -5,6 +5,7 @@
     position: relative;
     overflow: hidden;
     display: flex;
+    z-index: 30;
 }
 .header_circle{
     width: 100%;
@@ -528,7 +529,9 @@
 }
 
 .table img{
-    width: 80%;
+    width: 90%;
+    height: 70%;
+    object-fit: cover;
 }
 .user_infos{
     width: 100%;
@@ -603,7 +606,7 @@
     height: 9vh;
 }
 
-.alert{
+.alert, .flash-notice{
     display: none;
 }
 
