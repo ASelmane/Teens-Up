@@ -3,6 +3,18 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('index') }}">
+            <img src="{{ asset('/assets/svg/back.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+            <h1>Teens'Up</h1>
+    </div>
+</div>
+</div>
+</header>
 <section class="section section_login">
     <h2 class="h3 mb-3 font-weight-normal">Connexion</h2>
     <form class="login_form" method="post">
@@ -52,7 +64,7 @@
             Connexion
         </button>
     </form>
-
-    <a class="inscription" href="/register">Créer un compte</a>
+        <span class="ou">OU</span>
+    <a class="inscription" href="/register"><h2>Créer un compte</h2></a>
 </section>
 {% endblock %}

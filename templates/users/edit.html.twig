@@ -1,4 +1,20 @@
-{% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} {% block body %}
+
+{% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} 
+{% block body %}
+<div class="header_div">
+    <div class="header_flex">
+        <a href="{{ path('profil') }}">
+            <img src="{{ asset('/assets/svg/back.svg') }}">
+        </a>
+    </div>
+    <div class="header_titre">
+        <a href="{{ path('dashboard') }}">
+            <h1>Teens'Up</h1>
+        </a>
+    </div>
+</div>
+</div>
+</header>
 <section class="section section_edit">
     <div class="form_image">
         <form class="form_edit" name="users" method="post" enctype="multipart/form-data">
