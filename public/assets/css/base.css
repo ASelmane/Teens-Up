@@ -649,7 +649,8 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: "MontSerrat";
     display: flex;
-    margin-top: 3rem
+    margin-top: 3rem;
+    z-index: 16;
 }
 .conversation a{
     display: flex;
