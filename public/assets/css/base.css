@@ -935,3 +935,82 @@
     right: 15%;
     top: -10%;
 }
+
+@media (min-width: 800px) { 
+    .section_index{
+        flex-direction: row;
+    }
+    .div_svg{
+        margin-top: 3rem;
+        margin-left: 3rem;
+    }
+    .svg{
+        width: 700px;
+        height: 700px;
+    }
+    .index_paragraphe{
+        padding: 5rem;
+    }
+    .inscription{
+        margin-bottom: 0;
+    }
+
+    .inscription h2, .ou{
+        font-size: 2rem;
+    }
+    .login_form{
+        z-index: 16;
+    }
+
+    .section_login h2{
+        margin-top: 10%;
+    }
+
+    .form1.active{
+        display: grid;
+        grid-template-areas:
+        "nom mail"
+        "mdp mdp2"
+        "footer footer";
+    }
+    .form_div:nth-child(1){
+        grid-area: nom;
+    }
+    .form_div:nth-child(2){
+        grid-area: mail;
+    }
+    .form_div:nth-child(3){
+        grid-area: mdp;
+    }
+    .form_div:nth-child(4){
+        grid-area: mdp2;
+    }
+    .form_div:nth-child(5){
+        grid-area: footer;
+        justify-self: center;
+    }
+    .user_card:first-child{
+        width: 50%;
+        height: 80%;
+    }
+    .infos_user{
+        margin: 6rem;
+    }
+    .header_flex img{
+        width: 50px;
+    }
+    .user_infos{
+        font-size: 1.5rem;
+    }
+    .info_sport, .user_description, .modif_mdp{
+        font-size: 1.5rem;
+    }
+
+    .user_administration .boutton{
+        font-size: 2rem;
+    }
+    .table img{
+        width: 50%;
+        height: 90%;
+    }
+}
