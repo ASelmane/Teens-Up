@@ -33,7 +33,7 @@
                 </div>
                 <div class="">
                     <div class="label_div desc">
-                        Description
+                        <label for="users[description]">Description</label>
                         <textarea name="users[description]" id="users[description]" class="form-control">{{ user.description }}</textarea>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
         </form>
     </div>
     <div>
-        <button id="myBtn">Les Sports +</button>
+        <button id="myBtn" class="boutton">Les Sports +</button>
     </div>
     <div>
         {{ include("users/_delete_form.html.twig") }}
