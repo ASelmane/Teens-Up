@@ -335,6 +335,8 @@
 
 .div_sports{
     display: flex;
+    max-height: 50vh;
+    overflow-y: scroll;
     flex-direction: initial !important;
     align-items: center;
     justify-content: center;
