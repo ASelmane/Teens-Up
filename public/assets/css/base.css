@@ -209,7 +209,9 @@
     font-family: "MontSerrat";
     font-size: 3rem;
 }
-
+.form_checkbox{
+    height: 100%;
+}
 .form_checkbox input[type=checkbox]{
     display: none;
 }
@@ -254,7 +256,12 @@
 .date::-webkit-calendar-picker-indicator {
     display: none;
 }
-
+.registration_form{
+    height: 50%;
+}
+.div_checkbox{
+    height: 100%;
+}
 .sport{
     display: flex;
     text-align: center;
@@ -335,7 +342,7 @@
 
 .div_sports{
     display: flex;
-    max-height: 50vh;
+    max-height: 100%;
     overflow-y: scroll;
     flex-direction: initial !important;
     align-items: center;
