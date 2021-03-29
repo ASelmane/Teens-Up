@@ -3,17 +3,17 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="header_div">
-    <div class="header_flex">
-        <a href="{{ path('index') }}">
-            <img src="{{ asset('/assets/svg/back.svg') }}">
-        </a>
+        <div class="header_div">
+            <div class="header_flex">
+                <a href="{{ path('index') }}">
+                    <img src="{{ asset('/assets/svg/back.svg') }}">
+                </a>
+            </div>
+            <div class="header_titre">
+                    <h1>Teens'Up</h1>
+            </div>
+        </div>
     </div>
-    <div class="header_titre">
-            <h1>Teens'Up</h1>
-    </div>
-</div>
-</div>
 </header>
 <section class="section section_login">
     <h2 class="h3 mb-3 font-weight-normal">Connexion</h2>
@@ -48,7 +48,6 @@
         <input type="hidden" name="_csrf_token"
             value="{{ csrf_token('authenticate') }}"
         >
-        
         {#
             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
             See https://symfony.com/doc/current/security/remember_me.html
@@ -59,12 +58,11 @@
                 </label>
             </div>
         #}
-
         <button class="boutton btn-lg btn-primary" type="submit">
             Connexion
         </button>
     </form>
-        <span class="ou">OU</span>
+    <span class="ou">OU</span>
     <a class="inscription" href="/register"><h2>Créer un compte</h2></a>
 </section>
 {% endblock %}

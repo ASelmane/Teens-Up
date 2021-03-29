@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %} {% block title %}Register{% endblock %} 
 {% block body %} 
-<div class="header_div">
-    <div class="header_flex">
-        <a href="{{ path('app_login') }}">
-            <img src="{{ asset('/assets/svg/back.svg') }}">
-        </a>
+        <div class="header_div">
+            <div class="header_flex">
+                <a href="{{ path('app_login') }}">
+                    <img src="{{ asset('/assets/svg/back.svg') }}">
+                </a>
+            </div>
+            <div class="header_titre">
+                    <h1>Teens'Up</h1>
+            </div>
+        </div>
     </div>
-    <div class="header_titre">
-            <h1>Teens'Up</h1>
-    </div>
-</div>
-</div>
 </header>
 {% for flashError in app.flashes('verify_email_error') %}
 <div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -18,6 +18,7 @@
 <section class="section section_login">
     <h2>Inscription</h2>
     <form name="registration_form" class="registration_form" method="post">
+    <!-- PREMIERE ETAPE DU FORMULAIRE -->
         <div id="form1" class="form1 register_form active">
             <div class="form_div">
                 <img src="{{ asset('/assets/svg/name.svg') }}" />
@@ -67,6 +68,7 @@
                 </div>
             </div>
         </div>
+    <!-- DEUXIEME ETAPE DU FORMULAIRE -->        
         <div class="register_form form_checkbox" id="form2">
             <h3>Les sports qui vous intéressent</h3>
             <div class="div_checkbox">
@@ -81,9 +83,9 @@
                     </div>
                     {% endfor %}
                 </div>
-            </div>
-            
+            </div> 
         </div>
+    <!-- TROISIEME ETAPE DU FORMULAIRE -->
         <div class="register_form" id="form3">
             <h3>Distance maximale</h3>
                 <input type="range" min="1" max="100" value="50" class="slider" id="registration_form_distance" name="registration_form[distance]" onmousemove="rangeSlide(this.value)" onChange="rangeSlide(this.value)" />

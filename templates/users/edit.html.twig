@@ -1,19 +1,19 @@
 
 {% extends 'base.html.twig' %} {% block title %}Modifier Profil{% endblock %} 
 {% block body %}
-<div class="header_div">
-    <div class="header_flex">
-        <a href="{{ path('profil') }}">
-            <img src="{{ asset('/assets/svg/back.svg') }}">
-        </a>
+        <div class="header_div">
+            <div class="header_flex">
+                <a href="{{ path('profil') }}">
+                    <img src="{{ asset('/assets/svg/back.svg') }}">
+                </a>
+            </div>
+            <div class="header_titre">
+                <a href="{{ path('dashboard') }}">
+                    <h1>Teens'Up</h1>
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="header_titre">
-        <a href="{{ path('dashboard') }}">
-            <h1>Teens'Up</h1>
-        </a>
-    </div>
-</div>
-</div>
 </header>
 <section class="section section_edit">
     <div class="form_image">
@@ -28,10 +28,9 @@
                         <img id="editImage" src="/{{ app.user.images }}" />
                         {% endif %}
                     </label>
-
                     <input class="image_edit" type="file" id="users_images" name="users[images]" onchange="document.getElementById('editImage').src = window.URL.createObjectURL(this.files[0])" />
                 </div>
-                <div class="">
+                <div>
                     <div class="label_div desc">
                         <label for="users[description]">Description</label>
                         <textarea name="users[description]" id="users[description]" class="form-control">{{ user.description }}</textarea>

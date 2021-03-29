@@ -2,21 +2,22 @@
 {% extends 'base.html.twig' %} {% block title %}Dashboard{% endblock %} 
 
 {% block body %}
-<div class="header_div">
-    <div class="header_flex">
-        <a href="{{ path('profil') }}">
-            <img src="{{ asset('/assets/svg/profil.svg') }}">
-        </a>
+        <div class="header_div">
+            <div class="header_flex">
+                <a href="{{ path('profil') }}">
+                    <img src="{{ asset('/assets/svg/profil.svg') }}">
+                </a>
+            </div>
+            <div class="header_titre">
+                <h1>Teens'Up</h1>
+            </div>
+            <div class="header_flex right">
+                <a href="{{ path('conversations_index') }}">
+                    <img src="{{ asset('/assets/svg/message.svg') }}">
+                </a>    
+            </div>
+        </div>
     </div>
-    <div class="header_titre">
-        <h1>Teens'Up</h1>
-    </div>
-    <div class="header_flex right">
-        <a href="{{ path('conversations_index') }}">
-            <img src="{{ asset('/assets/svg/message.svg') }}">
-        </a>    </div>
-</div>
-</div>
 </header>
 <section class="section dashboard_section">
     <div class="info">
@@ -40,21 +41,18 @@
                     {% endfor %}<br />
                     <br />
                 </div>
-
                 <br><br>
             </div>
-                <div class="div_like">
-                    <a id="dislike" class="js-dislike" href="{{ path('dislikes', {'id': user.id}) }}"><img src="{{ asset('/assets/svg/dislike.svg') }}"><a><br>
-                    <a id="like" class="js-like" href="{{ path('likes', {'id': user.id}) }}"><img src="{{ asset('/assets/svg/like.svg') }}"></a>
-                </div>
+            <div class="div_like">
+                <a id="dislike" class="js-dislike" href="{{ path('dislikes', {'id': user.id}) }}"><img src="{{ asset('/assets/svg/dislike.svg') }}"><a><br>
+                <a id="like" class="js-like" href="{{ path('likes', {'id': user.id}) }}"><img src="{{ asset('/assets/svg/like.svg') }}"></a>
+            </div>
         </div>
         {% endfor %}
         {% else %}
             <span>Plus aucun profil à vous présenter</span>
         {% endif %}
-    
     </div>
-
 </section>
 
 {% endblock %}

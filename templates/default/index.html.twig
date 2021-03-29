@@ -3,24 +3,25 @@
 {% block title %}Teens'Up{% endblock %}
 
 {% block body %}
-<div class="header_div">
-    <div class="header_flex">
+    <div class="header_div">
+        <div class="header_flex">
+        </div>
+        <div class="header_titre">
+                <h1>Teens'Up</h1>
+        </div>
     </div>
-    <div class="header_titre">
-            <h1>Teens'Up</h1>
-    </div>
-</div>
-</div>
+  </div>
 </header>
+
 <section class="section section_index">
-<div class="div_svg">
-{% set nombre = 1 %}
-  <img id="svg" class="svg" src="{{ asset('/assets/svg/3.svg') }}">
-</div>
-<div class="index_paragraphe">
-  <h2>Trouve des partenaires de sport autour de toi !</h2>
-  <a class="boutton" href="/login">Connecte toi</a>
-</div>
+  <div class="div_svg">
+  {% set nombre = 1 %}
+    <img id="svg" class="svg" src="{{ asset('/assets/svg/3.svg') }}">
+  </div>
+  <div class="index_paragraphe">
+    <h2>Trouve des partenaires de sport autour de toi !</h2>
+    <a class="boutton" href="/login">Connecte toi</a>
+  </div>
 </section>
 <div class="position" id="infoposition"></div>
 
