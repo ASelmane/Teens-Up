@@ -1,54 +1,50 @@
 :root{
-    --degrade: linear-gradient(270deg, #824487 0%, #544D85 100%);
+    --degrade: linear-gradient(270deg, #824487 0%, #544D85 100%)
 }
 .header{
     position: relative;
     overflow: hidden;
     display: flex;
     height: fit-content;
-    z-index: 15;
-
+    z-index: 15
 }
 .header_circle{
     width: 100%;
     height: 35vh;
     background: var(--degrade);
     border-radius: 50%;
-    transform: scale(1.5) translateY(-60%);
+    transform: scale(1.5) translateY(-60%)
 }
-
 .header_div{
     position: absolute;
     width: 86%;
     height: 8vh;
     display: flex;
-    margin: 2vh 7% 0 7%;
+    margin: 2vh 7% 0 7%
 }
 .header_flex{
     display: inline-flex;
     width: 20%;
-    align-items: baseline;
+    align-items: baseline
 }
 .header_flex img{
-    width: 80px;
+    width: 80px
 }
 .header_flex.right a{
     display: block;
-    margin-left: auto;
+    margin-left: auto
 }
-
 .header_titre{
     display: inline-grid;
     width: 60%;
-    align-items: flex-end;
+    align-items: flex-end
 }
-
 .header_titre h1{
     text-transform: uppercase;
     color: white;
     font-size: 5.2rem;
     font-family: 'Mitr', sans-serif;
-    text-align: center;
+    text-align: center
 }
 .section{
     height: 100vh;
@@ -58,29 +54,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center
 }
-
 .div_svg{
     background-color: #E5F2DE;
-    border-radius: 100%;
+    border-radius: 100%
 }
-
 .svg{
     height: 750px;
-    width: 750px;
+    width: 750px
 }
 .index_paragraphe{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 3rem;
-    margin-top: 3rem;
+    margin-top: 3rem
 }
-
 .index_paragraphe h2{
     margin-bottom: 3rem;
     margin-left: 5rem;
-    margin-right: 5rem;
+    margin-right: 5rem
 }
 .boutton{
     font-family: 'Montserrat', sans-serif;
@@ -90,53 +83,46 @@
     border-radius: 10px;
     margin: 5rem;
     font-size: 3rem;
-    margin-top: 1em;
+    margin-top: 1em
 }
-
 .boutton.disabled{
     background: linear-gradient(270deg, #777777 0%, #929292 100%);    
-    cursor:default;
+    cursor:default
 }
-
 .position{
-    display: none;
+    display: none
 }
-
 .section_login{
     justify-content: space-around
 }
-
-
 .section_login h2, .section_edit h2, .section_message h2{
-
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 3rem;
     text-transform: uppercase;
-    margin-top: 30%;
+    margin-top: 30%
 }
-
 .login_form,.users_form, .register_form.active{
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
-    align-items: center;
+    align-items: center
 }
 .register_form, .btn{
-    display: none;
+    display: none
 }
 .btn.active{
-    display: flex;
+    display: flex
 }
 .form_div{
     display: flex;
     align-items: flex-end;
-    margin: 2rem;
+    margin: 2rem
 }
 .form_div img{
     width: 3rem;
-    margin-right: 2rem;
+    margin-right: 2rem
 }
 .label_div{
     display: flex;
@@ -145,25 +131,22 @@
     position: relative;
     width: 25rem;
     overflow: hidden;
-    height: 8rem;
+    height: 8rem
 }
-
 .label_div input{
     width: 100%;
     height: 100%;
     padding-top: 20px;
-    font-size: 2rem;
+    font-size: 2rem
 }
-
 .label_div label{
     position: absolute;
     bottom: 0;
     width: 100%;
     font-size: 2rem;
     height: 100%;
-    border-bottom: solid black 1px;
+    border-bottom: solid black 1px
 }
-
 .label_div label::after{
     content: "";
     position: absolute;
@@ -173,58 +156,48 @@
     width: 100%;
     border-bottom: solid #824487 1px;
     transform: translateX(-100%);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease
 }
-
 .content_name{
     position: absolute;
     bottom: 5px;
     left: 0;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease
 }
-
-.label_div input:focus + .label_name .content_name, 
-.label_div input:not(:placeholder-shown) + .label_name .content_name{
+.label_div input:focus + .label_name .content_name, .label_div input:not(:placeholder-shown) + .label_name .content_name{
     transform: translateY(-200%);
     font-size: 2rem;
-    color: #824487;
+    color: #824487
 }
-
-.label_div input:focus + .label_name::after, 
-.label_div input:not(:placeholder-shown) + .label_name::after{
-    transform: translateY(0%);
+.label_div input:focus + .label_name::after, .label_div input:not(:placeholder-shown) + .label_name::after{
+    transform: translateY(0%)
 }
-
 .inscription{
     font-family: "MontSerrat";
     font-size: 2rem;
     margin-bottom: 30%;
-    text-decoration:underline;
+    text-decoration:underline
 }
 .inscription h2{
-    margin-top: 0;
+    margin-top: 0
 }
-
 .ou{
     font-family: "MontSerrat";
-    font-size: 3rem;
+    font-size: 3rem
 }
 .form_checkbox{
-    height: 100%;
+    height: 100%
 }
 .form_checkbox input[type=checkbox]{
-    display: none;
+    display: none
 }
-
 .checkbox_label{
     margin: 2rem;
-    padding: 1rem;
+    padding: 1rem
 }
-
 .form_checkbox input:checked + .checkbox_label{
-    border: solid black 3px;
+    border: solid black 3px
 }
-
 .slider{
     width: 40rem;
     height: 2rem;
@@ -232,9 +205,8 @@
     background: #B0ADC3;
     outline: none;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden
 }
-
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 2rem;
@@ -243,55 +215,48 @@
     background: white;
     cursor: pointer;
     border: 4px solid #824487;
-    box-shadow: -407px 0 0 400px #824487;
+    box-shadow: -407px 0 0 400px #824487
 }
-
 .div_valeur{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center
 }
-
 .date::-webkit-calendar-picker-indicator {
-    display: none;
+    display: none
 }
 .registration_form{
-    height: 50%;
+    height: 50%
 }
 .div_checkbox{
-    height: 100%;
+    height: 100%
 }
 .sport{
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
-    width: 15rem !important;
+    width: 15rem !important
 }
-
 .sportImage{
-    width: 8rem;
+    width: 8rem
 }
-
 .agree_div{
-    position: relative;
+    position: relative
 }
-
 .agree_checkbox{
     position: absolute;
 	left: 0;
-	opacity: 0.01;
+	opacity: 0.01
 }
-
 .agree_checkbox + .agree_label{
     position: relative;
 	padding-left: 2.3em;
 	font-size: 1.05em;
 	line-height: 1.7;
-	cursor: pointer; 
+	cursor: pointer
 }
-
 .agree_checkbox:not(:checked) + .agree_label::before{
     content: '';
 	position: absolute;
@@ -303,9 +268,8 @@
 	background: #FFF;
 	border-radius: .2em;
 	box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
-	transition: all .275s;
+	transition: all .275s
 }
-
 .agree_checkbox:checked + .agree_label::before{    
     content: '';
 	position: absolute;
@@ -316,10 +280,9 @@
 	border-radius: .2em;
 	box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
     background: var(--degrade);	
-    transition: all .275s;
+    transition: all .275s
 }
-.agree_checkbox:not(:checked) + .agree_label::after,
-.agree_checkbox:checked + .agree_label::after{
+.agree_checkbox:not(:checked) + .agree_label::after, .agree_checkbox:checked + .agree_label::after{
     content: '✔';
 	position: absolute;
 	top: 1.05rem;
@@ -327,19 +290,16 @@
 	font-size: 2rem;
 	color: white;
 	line-height: 0;
-	transition: all .2s;
+	transition: all .2s
 }
-
 .agree_checkbox:not(:checked) + .agree_label::after{
     opacity: 0;
-	transform: scale(0) rotate(45deg);
+	transform: scale(0) rotate(45deg)
 }
-
 .agree_checkbox:checked + .agree_label::after{
     opacity: 1;
-	transform: scale(1) rotate(0);
+	transform: scale(1) rotate(0)
 }
-
 .div_sports{
     display: flex;
     max-height: 100%;
@@ -347,34 +307,30 @@
     flex-direction: initial !important;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap
 }
-
 .message{
     font-size: 2rem;
     font-family: "MontSerrat";
     padding: 1rem;
     word-wrap: break-word;
     margin-bottom: 1.5rem;
-    width: 100%;
+    width: 100%
 }
 .div_message_me{
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    align-self: flex-end;
+    align-self: flex-end
 }
-
-.div_message_me img,
-.div_message_other img{
+.div_message_me img, .div_message_other img{
     margin-left: 2rem;
     margin-right: 2rem;
     height: 5rem;
     width: 5rem;
     border-radius: 100%;
-    object-fit: cover;
+    object-fit: cover
 }
-
 .myMessage{
     background: var(--degrade);
     color: white;
@@ -382,13 +338,12 @@
     max-width: 60%;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 }
-
 .div_message_other{
     align-self: flex-start;
     display: flex;
-    align-items: center;
+    align-items: center
 }
 .otherMessage{
     background-color: #F7F7F7;
@@ -396,28 +351,24 @@
     max-width: 60%;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 }
-
 .info_perso{
-    display: none;
+    display: none
 }
-
 .info{
     width: 100%;
     height: 100%;
     display: flex;    
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column
 }
-
 .image_degrade{
     position: relative;
     width: 100%; 
-    height: 100%; 
+    height: 100%
 }
-
 .image_degrade:before{  
     content: " ";
     position: absolute;
@@ -425,15 +376,13 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)
 }
-
 .image_profil{
     object-fit: cover; 
     width: 100%; 
-    height: 100%; 
+    height: 100%
 }
-
 .image_profil::after{
     content: '';
     position: absolute;
@@ -443,7 +392,6 @@
     height: 100%;
     background: black
 }
-
 .infos_user{
     position: absolute;
     z-index: 1;
@@ -451,22 +399,19 @@
     color: white;
     bottom: 0;
     left: 0;  
-    margin: 5rem;
+    margin: 5rem
 }
-
 .infos_user h3{
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: bold
 }
-
 .infos_user span{
-    font-size: 2rem;
+    font-size: 2rem
 }
-
 .user_card:first-child{
     width: 80%; 
     height: 70%; 
-    position: relative;
+    position: relative
 }
 .div_totale:first-child{
     display: flex;
@@ -475,9 +420,8 @@
     flex-direction: column;
     width: 100%;
     font-family: "MontSerrat";  
-    height: 100%;
+    height: 100%
 }
-
 .div_totale:nth-child(2){
     display: flex;
     align-items: center;
@@ -489,72 +433,66 @@
     z-index: -2;
     position: absolute
 }
-
 .div_totale:nth-child(2) + .div_like{
     display: none
 }
-
 .div_totale{
-    display: none;
+    display: none
 }
-
 .div_totale_like{    
     width: 80%; 
     height: 70%; 
     position: relative;
     -webkit-animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
 }
 @-webkit-keyframes slide-tr {
     0% {
       -webkit-transform: translateY(0) translateX(0);
-              transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0)
     }
     100% {
       -webkit-transform: translateY(-1000px) translateX(1000px);
-              transform: translateY(-1000px) translateX(1000px);
+              transform: translateY(-1000px) translateX(1000px)
     }
 }
   @keyframes slide-tr {
     0% {
       -webkit-transform: translateY(0) translateX(0);
-              transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0)
     }
     100% {
       -webkit-transform: translateY(-1000px) translateX(1000px);
-              transform: translateY(-1000px) translateX(1000px);
+              transform: translateY(-1000px) translateX(1000px)
     }
 }
-
 @-webkit-keyframes slide-tl {
     0% {
       -webkit-transform: translateY(0) translateX(0);
-              transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0)
     }
     100% {
       -webkit-transform: translateY(-1000px) translateX(-1000px);
-              transform: translateY(-1000px) translateX(-1000px);
+              transform: translateY(-1000px) translateX(-1000px)
     }
 }
   @keyframes slide-tl {
     0% {
       -webkit-transform: translateY(0) translateX(0);
-              transform: translateY(0) translateX(0);
+              transform: translateY(0) translateX(0)
     }
     100% {
       -webkit-transform: translateY(-1000px) translateX(-100px);
-              transform: translateY(-1000px) translateX(-1000px);
+              transform: translateY(-1000px) translateX(-1000px)
     }
 }
-  
 .div_totale_dislike{    
     width: 80%; 
     height: 70%; 
     position: relative;
     -webkit-animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
 }
-
 .div_like{
     display: flex;
     align-items: center;
@@ -564,23 +502,19 @@
     position: absolute;
     bottom: 0;
     border-radius: 40%;
-    transform: translateY(2rem);
+    transform: translateY(2rem)
 }
-
 .div_like img{
     width: 10rem;
     margin: 2.5rem;
-    cursor: pointer;
+    cursor: pointer
 }
-
 .dashboard_section{
-    overflow: hidden;
+    overflow: hidden
 }
-
 .section_message{
-    justify-content: flex-start;
+    justify-content: flex-start
 }
-
 .messages{
     max-height: 80%;
     width: 90%;
@@ -588,7 +522,7 @@
     flex-direction: column;
     padding-bottom: 23vh;
     margin-top: 3em;
-    overflow-y: scroll;
+    overflow-y: scroll
 }
 .send{
     width: 100%;
@@ -597,9 +531,8 @@
     box-shadow: 0 0 70px black;
     z-index: 1;
     position: fixed;
-    bottom: 0;
+    bottom: 0
 }
-
 .section_message form{
     display: flex;
     align-items: center;
@@ -609,40 +542,34 @@
     margin: 4rem auto 2rem auto;
     background-color: white;
     border: 4px solid #824487;
-    border-radius: 15px;
+    border-radius: 15px
 }
-
 .send>form label{
-    display: none;
+    display: none
 }
-
 .send>form div{
-    width: 100%;
+    width: 100%
 }
-
 .send textarea{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 100%;
     height: 8rem;
     font-size: 3rem;
     padding: 0.3em;
-    resize: none;
+    resize: none
 }
-
 .boutton_send{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 8rem;
     height: 8rem;
-    margin: 0;
+    margin: 0
 }
-
 .boutton_send img{
     width: 3rem;
-    height: 3rem;
+    height: 3rem
 }
-
 .conversations{
     height: 75vh;
     width: 100%;
@@ -650,9 +577,8 @@
     align-items: center;
     flex-direction: column;
     overflow: auto;
-    scroll-behavior: revert;
+    scroll-behavior: revert
 }
-
 .conversation{
     height: 12rem;
     width: 90%;
@@ -660,35 +586,30 @@
     font-family: "MontSerrat";
     display: flex;
     margin-top: 3rem;
-    z-index: 16;
+    z-index: 16
 }
 .conversation a{
     display: flex;
-    width: 100%;
+    width: 100%
 }
-
 .conversation img{
     height: 12rem;
     width: 12rem;
-    object-fit: cover; 
+    object-fit: cover
 }
-
 .conversation_nom{
     font-weight: bold;
     font-size: 3rem;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
-
 .conversation_div{
     width: 100%;
     padding: 1.5rem;
-    font-size: 2rem;
+    font-size: 2rem
 }
-
 .conversation_infos{
-    margin-top: 1rem;
+    margin-top: 1rem
 }
-
 .table{
     font-family: "MontSerrat";
     width: 100%;
@@ -696,37 +617,32 @@
     display: flex;
     align-items: center;
     position: relative;
-    flex-direction: column;
+    flex-direction: column
 }
-
 .previous_page{
     position: absolute;
     top: 0;
     left: 5rem;
     color: white;
     font-size: 5rem;
-    z-index: 5;
+    z-index: 5
 }
-
 .conv_page{
     position: absolute;
     top: 0;
     right: 5rem;
     color: white;
     font-size: 5rem;
-    z-index: 5;  
+    z-index: 5
 }
-
 .conv_page img{
-    width: 4rem;
+    width: 4rem
 }
-
 .table img{
     width: 90%;
     height: 70%;
-    object-fit: cover;
+    object-fit: cover
 }
-
 .user_infos{
     width: 100%;
     height: 40%;
@@ -736,45 +652,37 @@
     box-shadow: 0px -7px 12px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
-    padding: 2.5rem;    
+    padding: 2.5rem
 }
-
 .user_titre{
-    display: flex;
-    
+    display: flex
 }
-
 .user_prenom, .user_age{
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 3rem
 }
-
 .user_description{
     margin-top: 2rem;
     font-size: 1.8rem;
     word-break: break-all;
     height: fit-content;
-    margin-bottom: 3em;
+    margin-bottom: 3em
 }
-
 .user_administration{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center
 }
-
 .user_administration .boutton{
-    margin: 0;
+    margin: 0
 }
-
 .section_edit{
     justify-content: space-between;
     font-family: "MontSerrat";
     font-size: 2rem;
-    overflow: hidden;
+    overflow: hidden
 }
-
 .form_edit{
     width: 100%;
     height: 50%;    
@@ -782,77 +690,63 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    margin-top: 25vh;
+    margin-top: 25vh
 }
-
 .div_form div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    margin-top: 5rem;
+    margin-top: 5rem
 }
-
 .form_edit textarea{
     border: black solid 1px;
     width: 80%;
     padding: .5rem;
-    height: 9vh;
+    height: 9vh
 }
-
 .alert, .flash-notice{
-    display: none;
+    display: none
 }
-
 .image_edit::-webkit-file-upload-button{
-    visibility: hidden;
-    
+    visibility: hidden
 }
 .image_edit{
     opacity: 0;
-    display: none;
+    display: none
 }
-
 .image_edit:hover::before{
-    border-color: black;
+    border-color: black
 }
-
 .image_edit:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9)
 }
-
 .modif_mdp{
-      font-size: 2rem;
+      font-size: 2rem
 }
-
 .edit_pass_form{
       font-family: "MontSerrat";
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center
 }
-
 .label_div_password{
-      width: 40rem;
+      width: 40rem
 }
-
 .edit_pass_div{
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center
 }
-
 .previous_page img{
-    width: 4rem;
+    width: 4rem
 }
-
 .flash-notice{
     font-family: "MontSerrat";
     font-size: 2.5em;
-    text-align: center;
+    text-align: center
 }
-
 .modal {
     display: none !important;
     position: fixed;
@@ -862,140 +756,126 @@
     width: 100%;
     height: 100%;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-  }
-  .modal.active{
-    display: block !important;
-  }
-  
-
-  .modal-content {
+    background-color: rgba(0,0,0,0.4)
+}
+.modal.active{
+    display: block !important
+}
+.modal-content {
     background-color: #fefefe;
     margin: 10vh auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-  }
-  
-  .close {
+    width: 80%
+}
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+    font-weight: bold
+}
+.close:hover, .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
-  }
-
+    cursor: pointer
+}
 .modal_overflow{
     overflow: auto;
-    height: 70vh;
+    height: 70vh
 }
-
 .delete{
-    margin-bottom: 5em;
+    margin-bottom: 5em
 }
-
 .info_sport{
     font-family: 'MontSerrat';
-    font-size: 2em;
+    font-size: 2em
 }
-
 #editImage{
-    width: 60%;
+    width: 60%
 }
-
 .editImage_label{
-    text-align: center;
+    text-align: center
 }
-
 .form_image{
     height: inherit;
-    margin-top: 4em;
+    margin-top: 4em
 }
 #users div{
-    margin-top: 1em;
+    margin-top: 1em
 }
 .label_div.desc{
     align-items: center;
-    height: auto;
+    height: auto
 }
 .contour{
-    position: relative;
+    position: relative
 }
 .upload{
     position: absolute;
     width: 15%;
     right: 15%;
-    top: -10%;
+    top: -10%
 }
 
 @media (min-width: 800px) { 
     .section_index{
-        flex-direction: row;
+        flex-direction: row
     }
     .div_svg{
         margin-top: 3rem;
-        margin-left: 3rem;
+        margin-left: 3rem
     }
     .svg{
         width: 700px;
-        height: 700px;
+        height: 700px
     }
     .index_paragraphe{
-        padding: 5rem;
+        padding: 5rem
     }
     .inscription{
-        margin-bottom: 0;
+        margin-bottom: 0
     }
-
     .inscription h2, .ou{
-        font-size: 2rem;
+        font-size: 2rem
     }
     .login_form{
-        z-index: 16;
+        z-index: 16
     }
-
     .section_login h2{
-        margin-top: 10%;
+        margin-top: 10%
     }
-
     .form1.active{
         display: grid;
         grid-template-areas:
         "nom mail"
         "mdp mdp2"
-        "footer footer";
+        "footer footer"
     }
     .form_div:nth-child(1){
-        grid-area: nom;
+        grid-area: nom
     }
     .form_div:nth-child(2){
-        grid-area: mail;
+        grid-area: mail
     }
     .form_div:nth-child(3){
-        grid-area: mdp;
+        grid-area: mdp
     }
     .form_div:nth-child(4){
-        grid-area: mdp2;
+        grid-area: mdp2
     }
     .form_div:nth-child(5){
         grid-area: footer;
-        justify-self: center;
+        justify-self: center
     }
     .user_card:first-child{
         width: 50%;
-        height: 80%;
+        height: 80%
     }
     .infos_user{
-        margin: 6rem;
+        margin: 6rem
     }
     .header_flex img{
-        width: 50px;
+        width: 50px
     }
     .user_infos{
         font-size: 1.5rem;
@@ -1004,23 +884,20 @@
         justify-content: center;
         height: 100%;
         width: 50%;
-        align-items: center;
+        align-items: center
     }
     .info_sport, .user_description, .modif_mdp{
-        font-size: 1.5rem;
+        font-size: 1.5rem
     }
-
     .user_administration .boutton{
-        font-size: 2rem;
+        font-size: 2rem
     }
-
     .table{
-        flex-direction: row;
+        flex-direction: row
     }
-
     .table img{
         width: 50%;
-        height: 100%;
+        height: 100%
     }
     .desc label{
         position: unset;
@@ -1029,49 +906,49 @@
         height: auto
     }
     .form_edit textarea{
-        height: 50%;
+        height: 50%
     }
     .div_form{
         display: flex;
-        align-items: center;
+        align-items: center
     }
     .label_div.desc{
-        height: 100%;
+        height: 100%
     }
     .section_edit .boutton{
         margin: 0;
         margin-top: 1rem;
-        font-size: 2rem;
+        font-size: 2rem
     }
     .section_edit .btn.active{
         margin-top: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2rem
     }
     .form_image{
-        margin-top: 2rem;
+        margin-top: 2rem
     }
     .edit_pass_form{
-        z-index: 16;
+        z-index: 16
     }
     .edit_pass_form .boutton{
-        font-size: 2rem;
+        font-size: 2rem
     }
     .section_message h2{
         margin-top: 10%;
-        font-size: 2rem;
+        font-size: 2rem
     }
     .send{
-        height: auto;
+        height: auto
     }
     .section_message form{
-        margin: 1rem auto;
+        margin: 1rem auto
     }
     .message{
-        font-size: 1.5rem;
+        font-size: 1.5rem
     }
     .messages{
         margin-top: 0;
         width: 100%;
-        max-height: 100%;
+        max-height: 100%
     }
 }
